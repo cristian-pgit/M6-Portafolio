@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	                    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean name="/helloworld.htm"
+	<bean name="/helloworld.jsp"
 		class="com.rf.springmvc.web.controller.HelloWorldController" />
 
 </beans>
