@@ -9,7 +9,8 @@
 
 ### Problema
 
-<p style="text-align: justify;">La Comunidad de Vrol es un agrupacion de personas, inicialmente de la V region, que se reunen en torno al Hobby de los [Juegos de Rol](https://es.wikipedia.org/wiki/Juego_de_rol), que originalmente partio por crear un espacio en Facebook y luego empenzando a armar su comunidad a travez de Whatsapp, generando mesas de rol Online y Presenciales a traves de post y tomar nota de los interesados apoyandose tambien con Discord. Pero la carencia de una centralidad de la informacion hace que muchas veces no todos los miembros puedan saber el estado actual de la comunidad, pudiendo saber de forma inmediata si hay eventos o mesas disponibles. Muchas veces la informacion en el canal de whatsapp se pierde entre todos los mensajes de la comunidad
+<p style="text-align: justify;">La Comunidad de Vrol es un agrupacion de personas, inicialmente de la V region, que se reunen en torno al Hobby de los 
+ [Juegos de Rol]([url](https://es.wikipedia.org/wiki/Juego_de_rol))], que originalmente partio por crear un espacio en Facebook y luego empenzando a armar su comunidad a travez de Whatsapp, generando mesas de rol Online y Presenciales a traves de post y tomar nota de los interesados apoyandose tambien con Discord. Pero la carencia de una centralidad de la informacion hace que muchas veces no todos los miembros puedan saber el estado actual de la comunidad, pudiendo saber de forma inmediata si hay eventos o mesas disponibles. Muchas veces la informacion en el canal de whatsapp se pierde entre todos los mensajes de la comunidad
 </p>
 
 ### Solucion
