@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <nav class="navbar navbar-expand-lg bg-body-tertiary"
 	data-bs-theme="dark">
 	<div id="navs" class="container-fluid">
@@ -16,6 +17,10 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="calendar">Calendario</a>
 				</li>
+				<li class="nav-item"><a class="nav-link"
+					href="contacto">Contacto</a></li>
+				<li class="nav-item"><a class="nav-link" href="listarmesas">Mesas</a>
+				</li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" role="button"
 					data-bs-toggle="dropdown" aria-expanded="false"> Links Utiles </a>
@@ -30,41 +35,24 @@
 						<li><a class="dropdown-item"
 							href="https://www.instagram.com/v_rolclub/">Instagram</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item"
+						<li><a class="dropdown-item disabled"
 							href="https://forms.gle/xUiy9rVNs82mVQ228">Inscripcion Junta</a></li>
 					</ul></li>
-				<li class="nav-item"><a class="nav-link"
-					href="contacto">Contacto</a></li>
+				<li class="nav-item"><a class="nav-link" href="juntas">Juntas</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="crearmesa">Crear Mesa</a>
+				</li>
 			</ul>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<div class="loginSector d-flex">
-					<!-- Agregamos la clase ms-auto para mover el login a la derecha -->
-					<%
-					String username = (String) session.getAttribute("userName");
-					if (username != null) {
-					%>
 					<div class="d-flex ms-auto">
-						<p class="nav-link" id="texlogin">
-							Welcome,&nbsp;<%=username%></p>
-						<form action="Logout" method="POST">
-							<button id="btnlogout" class="btn btn-outline-success btn-sm" type="submit">Logout</button>
+						<p class="nav-link text-info" id="texlogin">
+								Welcome,&nbsp;<strong class="text-success"><c:out value="${sessionScope.username}" /></strong>&nbsp;</p>
+						<form action="logout" method="POST">
+							<button id="btnlogout" class="btn btn-outline-danger btn-sm" type="submit">Logout</button>
 						</form>
 					</div>
-					<%
-					} else {
-					%>
-					<form class="d-flex ms-auto" role="login" action="Login" method="POST">
-						<input id="userName" class="form-control me-2" type="text"
-							name="username" placeholder="userName" aria-label="Username">
-						<input id="pass" class="form-control me-2" type="password"
-							name="password" placeholder="password" aria-label="Password">
-						<button type="submit" class="btn btn-outline-light">Log-in</button>
-					</form>
-					<%
-					}
-					%>
 				</div>
 			</div>
-
 		</div>
 </nav>

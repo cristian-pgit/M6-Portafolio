@@ -6,12 +6,30 @@
 body{
     font-family: 'Roboto', sans-serif;
     background-color: black !important;
+    height: 100vh !important;
     /* max-width: 1400px; */
+}
+nav{
+	padding: 0;
+}
+
+#formulario-adm{
+	padding: 0;
+	margin:0;
+}
+#formulario-vis{
+	padding: 0;
+	margin:0;
+}
+#formulario-dm{
+	padding: 0;
+	margin:0;
 }
 
 .bg-body-tertiary {
     padding: 0;
     height: 50px;
+    width: 100%;
     background-color: rgb(64, 0, 128) !important;
 }
 nav:navbar-brand{
@@ -24,7 +42,7 @@ nav:navbar-brand{
 .me-2{
 	height: 40px;
     width: 150px;
-    margin-top: 2px;
+    margin-top: 9px;
 
 }
 .me-2::placeholder{
@@ -33,21 +51,27 @@ nav:navbar-brand{
 
 #texlogin{
 	margin-top: 16px !important;
-	margin-right: 9px;
+	margin-right: 6px;
 }
 #btnlogout{
 	margin-top: 9px;
     border-radius: 50px;
     height: 35px;
+    color: darkorange;
+}
+#btnlogout:hover{
+	color: yellow;
+	
 }
 
 .btn-outline-light{
 	height: 40px;
     width: 90px;
-    margin-top: 2px;
+    margin-top: 9px;
     padding-bottom: 2px;
     border-radius: 50px;
-  
+  	color: cyan;
+  	font-weight: 700;
 }
 
 .loginSector{
@@ -57,6 +81,13 @@ nav:navbar-brand{
 .navbar-form input,
 .navbar-form button {
     width: 100%; /* el ancho del campo de entrada y botón es igual al ancho del formulario */
+}
+
+#textbox1{
+	text-align: justify;
+}
+#textbox2{
+	text-align: justify;
 }
 
 .about{
@@ -100,6 +131,8 @@ iframe{
 #footer{
     width: 100%;
     color: lightgrey;
+    position: relative;
+ 	bottom: 0; 
 } 
 
 #homl{

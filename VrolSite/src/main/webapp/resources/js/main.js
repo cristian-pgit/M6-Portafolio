@@ -7,17 +7,31 @@ function averigua() {
     swal("VRol", "Te contactaremos", "success", {button: "Vale!"});
  
 }
-/*//reloj
-function startTime(){
-    today=new Date();
-    h=today.getHours();
-    m=today.getMinutes();
-    s=today.getSeconds();
-    m=checkTime(m);
-    s=checkTime(s);
-    document.getElementById('reloj1').innerHTML=h+":"+m+":"+s;
-    document.getElementById('reloj2').innerHTML=h+":"+m+":"+s;
-    t=setTimeout('startTime()',500);}
-    function checkTime(i)
-    {if (i<10) {i="0" + i;}return i;}
-    window.onload=function(){startTime();}*/
+
+
+
+$(document).ready(function() {
+	displayFormFields();
+});
+
+try {
+  function displayFormFields() {
+    var perfil = document.getElementById("perfilse").value;
+    console.log(perfil);
+    if (perfil == "Adm") {
+      document.getElementById("formulario-adm").classList.remove("d-none");
+      document.getElementById("formulario-dm").classList.add("d-none");
+      document.getElementById("formulario-vis").classList.add("d-none");
+    } else if (perfil == "master") {
+      document.getElementById("formulario-adm").classList.add("d-none");
+      document.getElementById("formulario-dm").classList.remove("d-none");
+      document.getElementById("formulario-vis").classList.add("d-none");
+    } else if (perfil == null || perfil == "") {
+      document.getElementById("formulario-adm").classList.add("d-none");
+      document.getElementById("formulario-dm").classList.add("d-none");
+      document.getElementById("formulario-vis").classList.remove("d-none");
+    }
+  }
+} catch (error) {
+  console.log(error);
+}

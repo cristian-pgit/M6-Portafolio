@@ -1,0 +1,169 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.bg-body-tertiary {
+    opacity: 1;
+    padding: 0;
+    background-color: rgb(64, 0, 128) !important;
+}
+header{
+	 background-color: rgb(64, 0, 128) !important;
+}
+#navs{
+	 background-color: rgb(64, 0, 128) !important;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	min-height: 100vh;
+}
+
+
+.contenedor-juegos {
+	display: grid;
+	margin: 0.5rem;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+.card {
+	border-radius: 10px;
+	min-height: 200px;
+	font-weight: bold;
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+
+}
+
+.card .textos {
+	height: 100%;
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	color: white;
+	text-shadow: 1px 1px 2px rgb(255, 251, 0), 0 0 1em rgb(255, 123, 0), 0 0 0.2em blue;
+}
+
+.linkj{
+	color: white;
+	text-shadow: 1px 1px 2px rgb(255, 251, 0), 0 0 1em rgb(255, 123, 0), 0 0 0.2em blue;
+}
+.linkj:hover{
+	color: red;
+	text-shadow: 1px 1px 2px rgb(255, 251, 0), 0 0 1em rgb(255, 123, 0), 0 0 0.2em blue;
+}
+.linkj:visited{
+	color: white;
+	text-shadow: 1px 1px 2px rgb(255, 251, 0), 0 0 1em rgb(255, 123, 0), 0 0 0.2em blue;
+}
+
+.banner {
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+	background-size: cover;
+	background-position: center center;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.banner h3{
+	color: white;
+}
+
+.banner ul {
+	list-style: none;
+}
+
+.banner ul li {
+	margin: 15px;
+	font-weight: bold;
+	color: lightslategray;
+}
+.banner ul li:hover {
+	margin: 15px;
+	font-weight: bold;
+	color: red;
+}
+
+.banner .boton {
+	background: #FFD600;
+	display: block;
+	width: 100%;
+	font-weight: bold;
+	font-size: 14px;
+	text-align: center;
+	padding: 10px;
+	border: none;
+	border-radius: 100px;
+	font-family: 'Roboto', sans-serif;
+	cursor: pointer;
+}
+
+.btn-primary{
+	width: fit-content;
+	height: fit-content;
+	background-color: transparent;
+	border-color: rgb(245, 241, 10);
+	border-width: 2px;
+	border-radius: 10px;
+	border-style:groove;
+	font-weight: 600;
+	text-shadow: 1px 1px 2px rgb(255, 251, 0), 0 0 1em rgb(255, 123, 0), 0 0 0.2em blue;
+	background: rgb(131,58,180);
+	background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
+.btn-primary:hover{
+	border-color: red;
+	background: rgb(0,0,0);
+	background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(29,252,253,1) 50%, rgba(0,0,0,1) 100%);
+}
+.btn-primary:visited{
+	border-color: red;
+	background: rgb(0,0,0);
+	background: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(29,252,253,1) 50%, rgba(0,0,0,1) 100%);
+}
+
+#homl{
+	color: lightgrey;
+	font-weight: 700;
+}
+
+#footer{
+	color: lightgrey;
+}
+
+@media screen and (max-width: 900px) {
+	
+}
+
+@media screen and (max-width: 700px) {
+	
+}
+
+@media screen and (max-width: 567px) {
+	#reloj1{
+		display: contents;
+	}
+	#reloj2{
+		display: none;
+	}
+	#lahr{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 475px){
+    #min{
+        display: none;
+    }
+}

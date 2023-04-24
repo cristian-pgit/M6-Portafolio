@@ -22,11 +22,20 @@
 	rel="stylesheet">
 <link rel="shortcut icon" href="resources\img\LogoVrol.png"
 	type="image/x-icon">
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
-	<header>
-		<jsp:include page="navbar.jsp"></jsp:include>
-	</header>
+  	<c:set var="perfil" value="${sessionScope.perfil}"/>
+  	<input type="hidden" id="perfilse" value="${sessionScope.perfil}" />
+<div class="container-fluid d-none" id="formulario-adm">
+		<jsp:include page="navbar.jsp"/>
+</div>
+<div class="container-fluid d-none" id="formulario-dm">
+	<jsp:include page="master-navbar.jsp"/>
+</div>
+<div class="container-fluid d-none" id="formulario-vis">
+	<jsp:include page="visit-navbar.jsp"/>
+</div>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-sm-9">
@@ -112,8 +121,8 @@
 		</footer>
 	</div>
 
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="resources\js\main.js"></script>
-
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
