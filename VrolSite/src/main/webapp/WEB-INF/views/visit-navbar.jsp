@@ -55,3 +55,10 @@
 			</div>
 		</div>
 </nav>
+						<c:if test="${not empty message}">
+							<div id="popupbadlogin" class="alert alert-dismissible alert-danger d-flex">
+							  <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+							  <img src="https://i.ibb.co/BL2nC99/miniNeEr.png" alt="miniNeEr" border="0">  ${message}
+							</div>
+						</c:if>
+

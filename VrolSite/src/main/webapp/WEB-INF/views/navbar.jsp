@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<nav class="navbar navbar-expand-lg bg-body-tertiary"
-	data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
 	<div id="navs" class="container-fluid">
 		<img src="resources\img\LogoVrol.png" alt="Logo" width="30" height="24"
 			class="d-inline-block align-text-top" id="logohead"> <a

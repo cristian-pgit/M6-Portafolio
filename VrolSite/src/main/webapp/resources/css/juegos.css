@@ -18,7 +18,7 @@ header{
 
 body {
 	font-family: 'Roboto', sans-serif;
-	height: 100vh;
+	height: 100vh !important;
 }
 
 
@@ -151,15 +151,7 @@ body {
 }
 
 @media screen and (max-width: 567px) {
-	#reloj1{
-		display: contents;
-	}
-	#reloj2{
-		display: none;
-	}
-	#lahr{
-		display: none;
-	}
+
 }
 
 @media screen and (max-width: 475px){

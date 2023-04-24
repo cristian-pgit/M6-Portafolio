@@ -2,9 +2,7 @@ package cl.vrol.vrolsite.mappers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.springframework.jdbc.core.RowMapper;
-
 import cl.vrol.vrolsite.model.Usuario;
 
 public class UsuarioRowMapper implements RowMapper<Usuario>{

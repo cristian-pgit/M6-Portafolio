@@ -15,9 +15,17 @@
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
-	<header>
-		<jsp:include page="navbar.jsp"></jsp:include>
-	</header>
+  	<c:set var="perfil" value="${sessionScope.perfil}"/>
+  	<input type="hidden" id="perfilse" value="${sessionScope.perfil}" />
+<div class="container-fluid d-none" id="formulario-adm">
+		<jsp:include page="navbar.jsp"/>
+</div>
+<div class="container-fluid d-none" id="formulario-dm">
+	<jsp:include page="master-navbar.jsp"/>
+</div>
+<div class="container-fluid d-none" id="formulario-vis">
+	<jsp:include page="visit-navbar.jsp"/>
+</div>
 	<br>
 	<div class="container-fluid mx-auto">
 		<div class="row text-center">
@@ -95,17 +103,12 @@
 		</div>
 	</div>
 	
-	   <footer>
-			<jsp:include page="footer.jsp"></jsp:include>
-		</footer> 
-		<script src= "https://code.jquery.com/jquery-3.6.0.min.js" ></script>
-
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-		crossorigin="anonymous"></script>
-		<script src= "resources/enviarcontacto.js"></script>
-		<script src = "https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<footer>
+    <jsp:include page="footer.jsp"></jsp:include>
+  </footer>   
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="resources\js\main.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>  
 </body>
 </html>

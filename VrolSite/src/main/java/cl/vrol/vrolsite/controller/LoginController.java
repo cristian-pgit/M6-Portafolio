@@ -26,13 +26,20 @@ public class LoginController {
 	public ModelAndView loginIn(HttpServletRequest request, HttpServletResponse response) throws IOException{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		HttpSession session = request.getSession();
-		session.setAttribute("username", username);
-		Usuario user = usuarioDao.getUsuarioByUsernameAndPass(username, password);
-		String perfil = user.getPerfil();
-		session.setAttribute("perfil", perfil);
-		System.out.println(perfil);
-		System.out.println("Se ha conectado: "+user.getUsername());
-		return new ModelAndView("home");
+		try {
+			Usuario user = usuarioDao.getUsuarioByUsernameAndPass(username, password);
+			HttpSession session = request.getSession();
+			session.setAttribute("username", username);
+			String perfil = user.getPerfil();
+			session.setAttribute("perfil", perfil);
+			System.out.println("Se ha conectado: "+user.getUsername()+"  y su perfil es: "+perfil);
+			return new ModelAndView("home");
+		} catch (Exception e) {
+			e.printStackTrace();
+	        ModelAndView mav = new ModelAndView("home");
+	        mav.addObject("message", "Nombre de usuario o password incorrecto");
+	        return mav;
+		}
+		
 	}
 }
