@@ -9,6 +9,7 @@ public interface MesaDao {
 	public Mesa getUsuarioById(String idMesa);
 	public List<Mesa> getAllMesas();
 	public void updateMesa(Mesa mesa, int idMesa);
+	public void deleteMesa(Mesa mesa, int idMesa);
 	public void insertMesa(Mesa mesa);
 
 }

@@ -54,9 +54,12 @@ CREATE TABLE `mesa` (
   `nombre_mesa` varchar(45) DEFAULT NULL,
   `narrador` varchar(45) DEFAULT NULL,
   `juego` varchar(45) DEFAULT NULL,
+  `formato` varchar(45) DEFAULT NULL,
+  `dia` varchar(11) DEFAULT NULL,
   `jugadores` int DEFAULT NULL,
   `descripcion_breve` varchar(100) DEFAULT NULL,
-  `descripcion` varchar(300) DEFAULT NULL,
+  `descripcion` varchar(500) DEFAULT NULL,
+  `otros` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idmesa`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -82,6 +85,9 @@ CREATE TABLE `usuario` (
   `username` varchar(45) DEFAULT NULL,
   `password` varchar(45) DEFAULT NULL,
   `perfil` varchar(45) DEFAULT NULL,
+  `nick` varchar(45) DEFAULT NULL,
+  `correo` varchar(45) DEFAULT NULL,
+  `telefono` int DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -92,7 +98,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'admin','1234','Adm');
+INSERT INTO `usuario` VALUES (1,'admin','1234','Adm','Naitsirc','naitsircl@gmail.com',46545750);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -105,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-24 13:46:06
+-- Dump completed on 2023-04-24 19:33:37

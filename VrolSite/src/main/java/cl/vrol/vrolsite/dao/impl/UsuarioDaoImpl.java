@@ -24,7 +24,7 @@ public class UsuarioDaoImpl implements UsuarioDao{
 
 	@Override
 	public Usuario getUsuarioByUsernameAndPass(String username, String password) {
-		String sql = "SELECT id_usuario, perfil, username, password FROM usuario WHERE username = ? AND password=?";
+		String sql = "SELECT id_usuario, perfil, username, password, nick, correo, telefono FROM usuario WHERE username = ? AND password=?";
 		Object[] params = {username, password};
 		Usuario user = jdbcTemp.queryForObject(sql, params, new UsuarioRowMapper());
 		

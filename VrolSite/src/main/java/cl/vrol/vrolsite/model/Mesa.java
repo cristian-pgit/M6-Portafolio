@@ -6,9 +6,16 @@ public class Mesa {
 	private String nombreMesa;
 	private String narrador;
 	private String juego;
+	private String formato;
+	private String dia;
 	private int jugadores;
 	private String desCorta;
 	private String descripcion;
+	private String tags;
+	
+	public Mesa() {
+		
+	}
 	
 	
 	public int getIdMesa() {
@@ -52,6 +59,24 @@ public class Mesa {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	public String getDia() {
+		return dia;
+	}
+	public void setDia(String dia) {
+		this.dia = dia;
+	}
+	public String getTags() {
+		return tags;
+	}
+	public void setTags(String tags) {
+		this.tags = tags;
+	}
+	public String getFormato() {
+		return formato;
+	}
+	public void setFormato(String formato) {
+		this.formato = formato;
 	}
 	
 	

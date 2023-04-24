@@ -41,6 +41,10 @@
 				</li>
 				<li class="nav-item"><a class="nav-link" href="crearmesa">Crear Mesa</a>
 				</li>
+				<li class="nav-item"><a class="nav-link" href="crearusuario">Crear Usuario</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="listarusuarios">Listar Usuario</a>
+				</li>
 			</ul>
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<div class="loginSector d-flex">
