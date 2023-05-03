@@ -4,10 +4,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import cl.vrol.vrolsite.dao.UsuarioDao;
@@ -16,14 +16,21 @@ import cl.vrol.vrolsite.dao.impl.UsuarioDaoImpl;
 @Configuration
 @ComponentScan(basePackages="cl.vrol.vrolsite")
 @EnableWebMvc
-public class MvcConfiguration extends WebMvcConfigurerAdapter{
+public class MvcConfiguration implements WebMvcConfigurer {
 
 	@Bean
-	public ViewResolver getViewResolver(){
+	public void configureViewResolvers(ViewResolverRegistry registry){
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
 		resolver.setPrefix("/WEB-INF/views/");
 		resolver.setSuffix(".jsp");
-		return resolver;
+		resolver.setViewNames("*");
+		InternalResourceViewResolver resolverGames = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/views/juegos/");
+		resolver.setSuffix(".jsp");
+		resolver.setViewNames("*");
+		
+		registry.viewResolver(resolver);
+        registry.viewResolver(resolverGames);
 	}
 	
 	@Override

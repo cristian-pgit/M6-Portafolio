@@ -29,8 +29,9 @@ public class LoginController {
 		try {
 			Usuario user = usuarioDao.getUsuarioByUsernameAndPass(username, password);
 			HttpSession session = request.getSession();
-			session.setAttribute("username", username);
 			String perfil = user.getPerfil();
+			String nick = user.getNick();
+			session.setAttribute("nick", nick);
 			session.setAttribute("perfil", perfil);
 			System.out.println("Se ha conectado: "+user.getUsername()+"  y su perfil es: "+perfil);
 			return new ModelAndView("home");
@@ -41,5 +42,15 @@ public class LoginController {
 	        return mav;
 		}
 		
+	}
+	
+	@RequestMapping(value="/logout", method = RequestMethod.POST)
+	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws IOException{
+	    HttpSession session = request.getSession();
+	    System.out.println("Se ha Deslogueado: "+ session.getAttribute("username"));
+	    session.removeAttribute("username");
+	    session.removeAttribute("perfil");
+	    System.out.println("perfil actual:"+ session.getAttribute("perfil"));
+	    return new ModelAndView("home");
 	}
 }
