@@ -1,0 +1,5 @@
+package cl.vrol.controller;
+
+public class HomeController {
+
+}

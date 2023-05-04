@@ -1,0 +1,2 @@
+spring.thymeleaf.mode=jsp
+spring.thymeleaf.cache=false  

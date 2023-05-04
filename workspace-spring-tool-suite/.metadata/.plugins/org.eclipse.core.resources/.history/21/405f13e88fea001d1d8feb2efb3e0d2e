@@ -1,0 +1,5 @@
+package cl.vrol.config;
+
+public class SpringWebConfig {
+
+}
