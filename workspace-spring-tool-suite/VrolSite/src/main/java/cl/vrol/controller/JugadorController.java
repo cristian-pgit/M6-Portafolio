@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cl.vrol.model.entity.Jugador;
@@ -42,6 +44,12 @@ public class JugadorController {
 		model.addAttribute("mesas", listaMesas);
 		
 		return "/views/jugadores/frmInscrito";
+	}
+	
+	@PostMapping("/inscribir")
+	public String inscribir(@ModelAttribute Jugador jugador) {
+		playerService.guardar(jugador);
+		return "redirect:/views/jugadores/listarinscritos";
 	}
 
 }

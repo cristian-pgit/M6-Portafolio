@@ -7,7 +7,7 @@
 	<br>
 <form th:object="${jugador}">
 	<fieldset>	
-		<div class="card border-primary mb-3" id="formIns">
+		<div class="card border-info mb-3" id="formIns" th:action="@{/views/jugadores/inscribir}">
 		<div class="card-header bg-dark text-center"><strong th:text="${titulo}"></strong></div>
 		<div class="card-body">
 			<div class="container text-center">

@@ -18,6 +18,32 @@ USE `vrolsitedb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `contacto`
+--
+
+DROP TABLE IF EXISTS `contacto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contacto` (
+  `id_contacto` bigint NOT NULL AUTO_INCREMENT,
+  `contacto` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mensaje` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_contacto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacto`
+--
+
+LOCK TABLES `contacto` WRITE;
+/*!40000 ALTER TABLE `contacto` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contacto` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `jugadores_inscritos`
 --
 
@@ -33,7 +59,7 @@ CREATE TABLE `jugadores_inscritos` (
   PRIMARY KEY (`id_inscrito`),
   KEY `FKe1pu8ibydmp4ovoplp7n3s70i` (`mesa_id`),
   CONSTRAINT `FKe1pu8ibydmp4ovoplp7n3s70i` FOREIGN KEY (`mesa_id`) REFERENCES `mesas` (`id_mesa`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +68,7 @@ CREATE TABLE `jugadores_inscritos` (
 
 LOCK TABLES `jugadores_inscritos` WRITE;
 /*!40000 ALTER TABLE `jugadores_inscritos` DISABLE KEYS */;
-INSERT INTO `jugadores_inscritos` VALUES (1,'test@test.cl','Alexis','1234124',1),(2,'test@test.cl','Savandija','12341234',1),(3,'test@test.cl','Milka','12341234',1);
+INSERT INTO `jugadores_inscritos` VALUES (1,'test@test.cl','Alexis','1234124',1),(2,'test@test.cl','Savandija','12341234',1),(3,'test@test.cl','Milka','12341234',1),(4,'test@test.cl','Tomate','12341234',2);
 /*!40000 ALTER TABLE `jugadores_inscritos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,4 +113,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-04 22:20:32
+-- Dump completed on 2023-05-05 13:53:49

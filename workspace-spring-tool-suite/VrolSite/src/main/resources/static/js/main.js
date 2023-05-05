@@ -10,7 +10,7 @@ function averigua() {
 
 
 
-$(document).ready(function() {
+/*$(document).ready(function() {
 	displayFormFields();
 });
 
@@ -34,4 +34,4 @@ try {
   }
 } catch (error) {
   console.log(error);
-}
+}*/

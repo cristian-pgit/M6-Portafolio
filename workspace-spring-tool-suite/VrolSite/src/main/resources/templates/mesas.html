@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+
+<div class="container">
+<br>
+	<div th:each="mesa:${mesas}" class="container-fluid">
+		<div class="card border-info mb-3" style="max-width: 20rem;">
+		  <div class="card-header" th:text="${mesa.juego}"></div>
+		  <div class="card-body">
+		    <h4 class="card-title" th:text="${mesa.nombreMesa}"></h4>
+		    <p class="card-text" th:text="${mesa.desCorta}"></p>
+		    <div class="card-footer bg-dark text-center" id="botbtn">
+				<a class="btn btn-outline-light btn-sm"  th:href=@{/views/jugadores/nuevoinscrito}>Inscribirse</a>
+			</div>
+		  </div>
+		</div>
+	</div>
+</div>
+  
+
+<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>
