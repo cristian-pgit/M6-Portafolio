@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+	<br>
+<form th:object="${jugador}">
+	<fieldset>	
+		<div class="card border-primary mb-3" id="formIns">
+		<div class="card-header bg-dark text-center"><strong th:text="${titulo}"></strong></div>
+		<div class="card-body">
+			<div class="container text-center">
+				<div class="row">
+	
+					<div class="col text-center">
+						<div class="form-group row mb-3">
+							<label for="nombreJugador" class="form-label mt-2">Nombre del Jugador:</label>
+							<input type="text" th:field="*{nombreJugador}" class="form-control form-control-sm col-md-6" id="nombreJugador" placeholder="Escriba nombre del Jugador">
+							<small class="form-text text-muted"></small>
+						</div>
+					</div>
+	
+					<div class="col text-center">
+						<div class="form-group row mb-3">
+							<label for="email" class="form-label mt-2">E-mail:</label>
+							<input type="email" th:field="*{email}" class="form-control form-control-sm col-md-6" id="email" placeholder="Escriba correo valido">
+							<small class="form-text text-muted"></small>
+						</div>
+					</div>
+	
+				</div>
+				<div class="row">
+	
+					<div class="col text-center">
+						<div class="form-group row mb-3">
+							<label for="telefono" class="form-label mt-2">Telefono:</label>
+							<input type="text" th:field="*{telefono}" class="form-control form-control-sm col-md-6" id="telefono" placeholder="Escriba telefono de contacto">
+							<small class="form-text text-muted"></small>
+						</div>
+					</div>
+	
+					<div class="col text-center">	
+						<div class="form-group row mb-3">
+							<label for="nombreJugador" class="form-label mt-2">Mesa:</label>
+							<select th:field="*{mesa}" class="form-control form-control-sm col-md-6" id="mesa">
+								<option th:each="mesa:${mesas}" 
+									th:value="${mesa.idMesa}"
+									th:text="${mesa.nombreMesa}"
+								/>
+							</select>
+						</div>
+					</div>
+	
+				</div>
+				<div class="row">
+					<div class="col text-center">
+						<div class="card-footer bg-dark" id="botbtn">
+							<input type="submit" class="btn btn-outline-light btn-sm" value="Inscribirse" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+ 	</fieldset>
+</form>
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>
