@@ -26,7 +26,7 @@ public class ContactoController {
 		return "/views/contacto/contacto";
 	}
 	
-	@PostMapping("/enviarContacto")
+	@PostMapping("/enviar")
 	public String enviarMsj(@ModelAttribute Contacto contacto) {
 		contactoService.guardar(contacto);
 		System.out.println("Contacto Enviado: "+contacto);

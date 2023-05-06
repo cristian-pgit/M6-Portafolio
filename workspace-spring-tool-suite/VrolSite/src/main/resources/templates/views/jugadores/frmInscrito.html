@@ -5,9 +5,9 @@
 <body>
 <header th:replace="plantilla/template :: header"></header>
 	<br>
-<form th:object="${jugador}">
+<form class="was-validated" th:action="@{/views/jugadores/inscribir}" th:object="${jugador}" method="post">
 	<fieldset>	
-		<div class="card border-info mb-3" id="formIns" th:action="@{/views/jugadores/inscribir}">
+		<div class="card border-info mb-3" id="formIns" >
 		<div class="card-header bg-dark text-center"><strong th:text="${titulo}"></strong></div>
 		<div class="card-body">
 			<div class="container text-center">

@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `vrolbd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `vrolbd`;
+CREATE DATABASE  IF NOT EXISTS `vrolsitedb` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `vrolsitedb`;
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: vrolbd
+-- Host: localhost    Database: vrolsitedb
 -- ------------------------------------------------------
 -- Server version	8.0.32
 
@@ -18,88 +18,92 @@ USE `vrolbd`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `juegos`
+-- Table structure for table `contacto`
 --
 
-DROP TABLE IF EXISTS `juegos`;
+DROP TABLE IF EXISTS `contacto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `juegos` (
-  `id_juegos` int NOT NULL AUTO_INCREMENT,
-  `nombre_juego` varchar(45) DEFAULT NULL,
-  `about` varchar(500) DEFAULT NULL,
-  `sistema` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_juegos`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `contacto` (
+  `id_contacto` bigint NOT NULL AUTO_INCREMENT,
+  `contacto` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mensaje` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  `nom_contacto` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_contacto`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `juegos`
+-- Dumping data for table `contacto`
 --
 
-LOCK TABLES `juegos` WRITE;
-/*!40000 ALTER TABLE `juegos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `juegos` ENABLE KEYS */;
+LOCK TABLES `contacto` WRITE;
+/*!40000 ALTER TABLE `contacto` DISABLE KEYS */;
+INSERT INTO `contacto` VALUES (1,'testing1','test@test.cl','mensaje de prueba','12341234',NULL),(2,'testing2','test2@test.cl','mensaje2','12341234',NULL),(3,NULL,'test3@test.cl','Mensaje3','12341234','testing3');
+/*!40000 ALTER TABLE `contacto` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `mesa`
+-- Table structure for table `jugadores_inscritos`
 --
 
-DROP TABLE IF EXISTS `mesa`;
+DROP TABLE IF EXISTS `jugadores_inscritos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `mesa` (
-  `idmesa` int NOT NULL AUTO_INCREMENT,
-  `nombre_mesa` varchar(45) DEFAULT NULL,
-  `narrador` varchar(45) DEFAULT NULL,
-  `juego` varchar(45) DEFAULT NULL,
-  `formato` varchar(45) DEFAULT NULL,
-  `dia` varchar(11) DEFAULT NULL,
-  `jugadores` int DEFAULT NULL,
-  `descripcion_breve` varchar(100) DEFAULT NULL,
-  `descripcion` varchar(500) DEFAULT NULL,
-  `otros` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`idmesa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `jugadores_inscritos` (
+  `id_inscrito` bigint NOT NULL AUTO_INCREMENT,
+  `email` varchar(255) DEFAULT NULL,
+  `nombre_jugador` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  `mesa_id` bigint DEFAULT NULL,
+  PRIMARY KEY (`id_inscrito`),
+  KEY `FKe1pu8ibydmp4ovoplp7n3s70i` (`mesa_id`),
+  CONSTRAINT `FKe1pu8ibydmp4ovoplp7n3s70i` FOREIGN KEY (`mesa_id`) REFERENCES `mesas` (`id_mesa`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `mesa`
+-- Dumping data for table `jugadores_inscritos`
 --
 
-LOCK TABLES `mesa` WRITE;
-/*!40000 ALTER TABLE `mesa` DISABLE KEYS */;
-/*!40000 ALTER TABLE `mesa` ENABLE KEYS */;
+LOCK TABLES `jugadores_inscritos` WRITE;
+/*!40000 ALTER TABLE `jugadores_inscritos` DISABLE KEYS */;
+INSERT INTO `jugadores_inscritos` VALUES (1,'test@test.cl','Alexis','1234124',1),(2,'test@test.cl','Savandija','12341234',1),(3,'test@test.cl','Milka','12341234',1),(4,'tomate@tes.cl','Tomate','12341234',2);
+/*!40000 ALTER TABLE `jugadores_inscritos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `usuario`
+-- Table structure for table `mesas`
 --
 
-DROP TABLE IF EXISTS `usuario`;
+DROP TABLE IF EXISTS `mesas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuario` (
-  `id_usuario` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) DEFAULT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `perfil` varchar(45) DEFAULT NULL,
-  `nick` varchar(45) DEFAULT NULL,
-  `correo` varchar(45) DEFAULT NULL,
-  `telefono` int DEFAULT NULL,
-  PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `mesas` (
+  `id_mesa` bigint NOT NULL AUTO_INCREMENT,
+  `des_corta` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `dia` varchar(255) DEFAULT NULL,
+  `formato` varchar(255) DEFAULT NULL,
+  `juego` varchar(255) DEFAULT NULL,
+  `narrador` varchar(255) DEFAULT NULL,
+  `nombre_mesa` varchar(255) DEFAULT NULL,
+  `tags` varchar(255) DEFAULT NULL,
+  `cupos` int NOT NULL,
+  PRIMARY KEY (`id_mesa`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuario`
+-- Dumping data for table `mesas`
 --
 
-LOCK TABLES `usuario` WRITE;
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'admin','1234','Adm','Naitsirc','naitsircl@gmail.com',46545750);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+LOCK TABLES `mesas` WRITE;
+/*!40000 ALTER TABLE `mesas` DISABLE KEYS */;
+INSERT INTO `mesas` VALUES (1,'Hay un Dragon Quimerico suelto en la Ciudad','Hay un Dragon Quimerico Suelto pero enfrentarse a el es incesato','2023/04/17','presencial','Changeling','Naitsirc','De quien es el Dragon?','traumas, abuso',4),(2,'Se ha perdido un Cargamento de Arroz, encuentralo','Se ha detectado que un comerciante de arroz se ha perdido en circunstancias dudosas, averigua que ha pasado','2023/04/17','presencial','Mousguard','Alexis','El Mercader Perdido','aventuras ratoniles',4);
+/*!40000 ALTER TABLE `mesas` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -111,4 +115,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-24 19:33:37
+-- Dump completed on 2023-05-05 20:30:14

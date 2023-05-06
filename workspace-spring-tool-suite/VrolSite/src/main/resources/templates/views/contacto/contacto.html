@@ -11,16 +11,16 @@
 			<div class="col-sm-6">
 				<div class="well well-sm">
 				
-					<form class="was-validated" th:action="@{/views/contacto/enviarContacto}" th:object="${contacto}" method="Post">
+					<form class="was-validated" th:action="@{/views/contacto/enviar}" th:object="${contacto}" method="Post">
 						<fieldset>
 							<legend class="text-center header" id="headerContacto" th:text="${titulo}"></legend>
-							<input type="hidden" th:field="*{idContacto}" />
+							
 							<div class="form-group justify-content-center">
 								<span class="col-md-1 text-center"><i
 									class="fa fa-user bigicon"></i></span>
 								<div class="col">
-									<input id="fname"  name="name" type="text" placeholder="Nombre de Remitente"
-										class="form-control" required="true" th:field="*{contacto}">
+									<input type="text" th:field="*{nomContacto}" placeholder="Nombre de Remitente" id="nomContacto" name="nomContacto" 
+										class="form-control" required="true" >
 										<div class="invalid-feedback">No puede estar vacio</div>
 								</div>
 							</div>
@@ -30,8 +30,7 @@
 								<span class="col-md-1 col-md-offset-2 text-center"><i
 									class="fa fa-envelope-o bigicon"></i></span>
 								<div class="col">
-									<input id="email" name="email" type="text" placeholder="Email"
-										class="form-control" required="true" th:field="*{email}">
+									<input type="text" th:field="*{email}" class="form-control" required="true" id="email" name="email" placeholder="Email" >
 										<div class="invalid-feedback">No puede estar vacio</div>
 								</div>
 							</div>
@@ -40,8 +39,8 @@
 								<span class="col-md-1 col-md-offset-2 text-center"><i
 									class="fa fa-phone-square bigicon"></i></span>
 								<div class="col">
-									<input id="phone" name="phone" type="String"
-										placeholder="Numero Telefonico" class="form-control" required="true" th:field="*{telefono}">
+									<input type="text" th:field="*{telefono}" id="phone" name="phone" 
+									placeholder="Numero Telefonico" class="form-control" required="true" >
 										<div class="invalid-feedback">No puede estar vacio</div>
 								</div>
 							</div>
@@ -50,9 +49,9 @@
 								<span class="col-md-1 col-md-offset-2 text-center"><i
 									class="fa fa-pencil-square-o bigicon"></i></span>
 								<div class="col">
-									<textarea class="form-control" id="message" name="message"
+									<textarea th:field="*{mensaje}" class="form-control" id="message" name="message"
 										placeholder="Ingresa tu mensaje. Te responderemos a la brevedad."
-										rows="5" required="true" th:field="*{mensaje}"></textarea>
+										rows="5" required="true" ></textarea>
 										<div class="invalid-feedback">No puede estar vacio</div>
 								</div>
 							</div>

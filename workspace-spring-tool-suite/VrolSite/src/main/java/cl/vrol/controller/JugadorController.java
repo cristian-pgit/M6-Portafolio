@@ -49,7 +49,7 @@ public class JugadorController {
 	@PostMapping("/inscribir")
 	public String inscribir(@ModelAttribute Jugador jugador) {
 		playerService.guardar(jugador);
-		return "redirect:/views/jugadores/listarinscritos";
+		return "redirect:/views/jugadores/";
 	}
 
 }

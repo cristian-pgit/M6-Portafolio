@@ -25,7 +25,7 @@ public class Mesa implements Serializable {
 	private String juego;
 	private String formato;
 	private String dia;
-	private int jugadores;
+	private int cupos;
 	private String desCorta;
 	private String descripcion;
 	private String tags;
@@ -66,11 +66,11 @@ public class Mesa implements Serializable {
 	public void setDia(String dia) {
 		this.dia = dia;
 	}
-	public int getJugadores() {
-		return jugadores;
+	public int getCupos() {
+		return cupos;
 	}
-	public void setJugadores(int jugadores) {
-		this.jugadores = jugadores;
+	public void setCupos(int jugadores) {
+		this.cupos = jugadores;
 	}
 	public String getDesCorta() {
 		return desCorta;

@@ -20,7 +20,7 @@ public class Contacto implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idContacto;
-	private String contacto;
+	private String nomContacto;
 	private String email;
 	private String telefono;
 	private String mensaje;
@@ -32,11 +32,11 @@ public class Contacto implements Serializable {
 	public void setIdContacto(Long idContacto) {
 		this.idContacto = idContacto;
 	}
-	public String getContacto() {
-		return contacto;
+	public String getNomContacto() {
+		return nomContacto;
 	}
-	public void setContacto(String contacto) {
-		this.contacto = contacto;
+	public void setNomContacto(String nomContacto) {
+		this.nomContacto = nomContacto;
 	}
 	public String getEmail() {
 		return email;
@@ -62,7 +62,7 @@ public class Contacto implements Serializable {
 		builder.append("Contacto [idContacto=");
 		builder.append(idContacto);
 		builder.append(", contacto=");
-		builder.append(contacto);
+		builder.append(nomContacto);
 		builder.append(", email=");
 		builder.append(email);
 		builder.append(", telefono=");
