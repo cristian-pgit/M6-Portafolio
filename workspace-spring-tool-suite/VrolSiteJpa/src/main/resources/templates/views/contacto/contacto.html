@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+
+<div class="container-fluid">
+  	<div class="row text-center">
+			<div class="col-sm-3"></div>
+			<div class="col-sm-6">
+				<div class="well well-sm">
+				
+					<form class="was-validated" th:action="@{/views/contacto/enviar}" th:object="${contacto}" method="Post">
+						<fieldset>
+							<legend class="text-center header" id="headerContacto" th:text="${titulo}"></legend>
+							
+							<div class="form-group justify-content-center">
+								<span class="col-md-1 text-center"><i
+									class="fa fa-user bigicon"></i></span>
+								<div class="col">
+									<input type="text" th:field="*{nomContacto}" placeholder="Nombre de Remitente" id="nomContacto" name="nomContacto" 
+										class="form-control" required="true" >
+										<div class="invalid-feedback">No puede estar vacio</div>
+								</div>
+							</div>
+							<br>
+							
+							<div class="form-group justify-content-center">
+								<span class="col-md-1 col-md-offset-2 text-center"><i
+									class="fa fa-envelope-o bigicon"></i></span>
+								<div class="col">
+									<input type="text" th:field="*{email}" class="form-control" required="true" id="email" name="email" placeholder="Email" >
+										<div class="invalid-feedback">No puede estar vacio</div>
+								</div>
+							</div>
+							<br>
+							<div class="form-group justify-content-center">
+								<span class="col-md-1 col-md-offset-2 text-center"><i
+									class="fa fa-phone-square bigicon"></i></span>
+								<div class="col">
+									<input type="text" th:field="*{telefono}" id="phone" name="phone" 
+									placeholder="Numero Telefonico" class="form-control" required="true" >
+										<div class="invalid-feedback">No puede estar vacio</div>
+								</div>
+							</div>
+							<br>
+							<div class="form-group justify-content-center">
+								<span class="col-md-1 col-md-offset-2 text-center"><i
+									class="fa fa-pencil-square-o bigicon"></i></span>
+								<div class="col">
+									<textarea th:field="*{mensaje}" class="form-control" id="message" name="message"
+										placeholder="Ingresa tu mensaje. Te responderemos a la brevedad."
+										rows="5" required="true" ></textarea>
+										<div class="invalid-feedback">No puede estar vacio</div>
+								</div>
+							</div>
+							<br>
+							<div class="form-group">
+								<div class="col-md-12 text-center">
+									<input type="submit" class="btn btn-outline-info"
+										id="enviar" value="Enviar Mensaje" />
+								</div>
+							</div>
+							<br>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+  
+</div>
+<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>

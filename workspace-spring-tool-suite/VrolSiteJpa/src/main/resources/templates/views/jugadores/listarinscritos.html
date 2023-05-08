@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+	<div class="container">
+		<h1 class="text-center" th:text="${titulo}"></h1>
+	</div>
+	<div class="container">
+		<table class="table table-hover">
+		  <thead>
+			    <tr>
+			      <th scope="col">Id Jugador:</th>
+			      <th scope="col">Jugador:</th>
+			      <th scope="col">E-mail:</th>
+			      <th scope="col">Telefono:</th>
+			      <th scope="col">En la Mesa:</th>
+			      <th scope="col">Juego:</th>
+			      <th scope="col">Narrador:</th>
+			      <th scope="col">Editar:</th>
+			      <th scope="col">Eliminar:</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr th:each="pj:${inscritos}" class="table-dark">
+			      <th scope="row" th:text="${pj.idInscrito}"></th>
+			      <td th:text="${pj.nombreJugador}"></td>
+			      <td th:text="${pj.email}"></td>
+			      <td th:text="${pj.telefono}"></td>
+			      <td th:text="${pj.mesa.nombreMesa}"></td>
+			      <td th:text="${pj.mesa.juego}"></td>
+			      <td th:text="${pj.mesa.narrador}"></td>
+			      <td>
+			      	<a class="btn btn-outline-warning btn-sm"  th:href="@{/views/jugadores/edit/}+${pj.idInscrito}" 
+			      	th:text="Editar" title="Editar Registro"></a>
+			      </td>
+			      <td>
+			      	<a class="btn btn-outline-danger btn-sm"  th:href="@{/views/jugadores/delete/}+${pj.idInscrito}"
+			      	th:text="Eliminar" title="Eliminar Registro"
+			      	onclick="return confirm('Esta Seguro de querer Eliminar?');"></a>
+			      </td>
+			    </tr>
+			  </tbody>
+		</table>
+	</div>
+
+
+
+<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>
