@@ -28,7 +28,7 @@ public class MesasController {
 		return "mesas";
 	}
 	
-	@GetMapping("/{id}")
+	@GetMapping("/ver/{id}")
 	public String mostrarMesa(Model model, @PathVariable Long id) {
 	    Mesa mesa = mesaService.buscarPorMesaID(id);
 	    int jugadoresInscritos = mesaService.getCuposDisponibles(id);
