@@ -56,6 +56,7 @@ public class LoginController {
 		HttpSession session = request.getSession();
 		String nick = user.getNick();
 		String perfil = user.getPerfil();
+		session.setAttribute("user", user);
 		session.setAttribute("nick", nick);
 		session.setAttribute("perfil", perfil);
 		System.out.println("Se ha conectado: "+user.getNick()+"  y su perfil es: "+perfil);
@@ -66,6 +67,7 @@ public class LoginController {
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 	    System.out.println("Se ha Deslogueado: "+ session.getAttribute("username"));
+	    session.removeAttribute("user");
 	    session.removeAttribute("username");
 	    session.removeAttribute("perfil");
 	    System.out.println("perfil actual:"+ session.getAttribute("perfil"));
