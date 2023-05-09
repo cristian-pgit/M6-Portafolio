@@ -1,4 +1,4 @@
-package cl.vrol.model.entity;
+package cl.vrol.models.entity;
 
 import java.io.Serializable;
 

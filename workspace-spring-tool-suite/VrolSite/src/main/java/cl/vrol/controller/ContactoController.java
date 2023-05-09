@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import cl.vrol.model.entity.Contacto;
+import cl.vrol.models.entity.Contacto;
 import cl.vrol.models.service.IContactoService;
 
 @Controller

@@ -60,9 +60,17 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.26</version>
+		    <scope>provided</scope>
+		</dependency>
+
+		
 		<!-- Spring Security -->
 		
-		<dependency>
+		<!--<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
@@ -70,7 +78,7 @@
 		<dependency>
 		    <groupId>org.springframework.security</groupId>
 		    <artifactId>spring-security-config</artifactId>
-		</dependency>
+		</dependency>-->
 
 
 		

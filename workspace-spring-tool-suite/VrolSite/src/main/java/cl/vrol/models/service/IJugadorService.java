@@ -2,7 +2,7 @@ package cl.vrol.models.service;
 
 import java.util.List;
 
-import cl.vrol.model.entity.Jugador;
+import cl.vrol.models.entity.Jugador;
 
 public interface IJugadorService {
 	

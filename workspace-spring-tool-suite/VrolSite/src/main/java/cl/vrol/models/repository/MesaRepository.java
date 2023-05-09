@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import cl.vrol.model.entity.Mesa;
+import cl.vrol.models.entity.Mesa;
 
 @Repository
 public interface MesaRepository extends JpaRepository<Mesa, Long>{

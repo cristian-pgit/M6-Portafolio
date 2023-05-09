@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
-import cl.vrol.model.entity.Mesa;
+import cl.vrol.models.entity.Mesa;
 import cl.vrol.models.repository.JugadorRepository;
 import cl.vrol.models.repository.MesaRepository;
 

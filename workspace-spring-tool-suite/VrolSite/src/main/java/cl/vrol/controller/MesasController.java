@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
-import cl.vrol.model.entity.Mesa;
+import cl.vrol.models.entity.Mesa;
 import cl.vrol.models.service.IMesaService;
 
 @Controller

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+<header th:replace="plantilla/template :: header"></header>
+	<br>
+<form  th:action="@{/views/usuarios/registrar}" th:object="${usuario}" method="post">
+	<fieldset>	
+		<div class="card border-info mb-3" id="formIns" >
+		<div class="card-header bg-dark text-center"><strong th:text="${titulo}"></strong></div>
+		<div class="card-body">
+			<div class="container text-center">
+				<div class="row">
+					<input type="hidden" th:field="*{idUsuario}"> 
+					<div class="col text-center">
+						<div class="form-group row mb-3">
+							<label for="userName" class="form-label mt-2">Nombre de Usuario:</label>
+							<input type="text" th:field="*{userName}" class="form-control form-control-sm col-md-6" 
+								id="userName" placeholder="Escriba nombre del Usuario" >
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('userName')}"
+								th:errors="*{userName}">
+							</small>
+							<div class="invalid-feedback">No puede estar vacio</div>
+						</div>
+					</div>
+					
+					<div class="col text-center">
+						<div class="form-group row mb-3">
+							<label for="nick" class="form-label mt-2">Nick o Pseudonimo:</label>
+							<input type="text" th:field="*{nick}" class="form-control form-control-sm col-md-6" 
+								id="nick" placeholder="Escriba nick o Pseudonomo" >
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('nick')}"
+								th:errors="*{nick}">
+							</small>
+							<div class="invalid-feedback">No puede estar vacio</div>
+						</div>
+					</div>
+	
+				</div>
+				<div class="row">
+					<div class="col text-center">
+						<div class="form-group row mb-3">
+							<label for="password" class="form-label mt-2">Password:</label>
+							<input type="password" th:field="*{password}" class="form-control form-control-sm col-md-6" 
+								id="password" placeholder="Escriba Password" >
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('password')}"
+								th:errors="*{password}">
+							</small>
+							<div class="invalid-feedback">No puede estar vacio</div>
+						</div>
+					</div>
+				
+					<div class="col text-center">
+						<div class="form-group row mb-3">
+							<label for="email" class="form-label mt-2">E-mail:</label>
+							<input type="email" th:field="*{email}" class="form-control form-control-sm col-md-6" 
+								id="email" placeholder="Escriba correo valido" >
+							<small class="form-text text-danger" th:if="${#fields.hasErrors('email')}"
+								th:errors="*{email}">
+							</small>
+							<div class="invalid-feedback">No puede estar vacio</div>
+						</div>
+					</div>
+	
+				</div>
+				<div class="row">
+					<div class="col text-center">
+						<div class="col text-center">	
+						<div class="form-group row mb-3">
+							<label for="perfil" class="form-label mt-2">Perfil:</label>
+							<select th:field="*{perfil}" class="form-control form-control-sm col-md-6" id="perfil" required="true">
+								<option th:value="Narrador" th:text="Narrador" />
+								<option th:value="Administrador" th:text="Administrador" />
+							</select>
+							<div class="invalid-feedback">Debe seleccionar</div>
+						</div>
+					</div>
+					
+						<div class="card-footer bg-dark" id="botbtn">
+							<input type="submit" class="btn btn-outline-light btn-sm" value="registrarse" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+ 	</fieldset>
+</form>
+
+<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

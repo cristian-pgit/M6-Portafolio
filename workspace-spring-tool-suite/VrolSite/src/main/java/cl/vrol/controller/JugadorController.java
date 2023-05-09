@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import cl.vrol.model.entity.Jugador;
-import cl.vrol.model.entity.Mesa;
+import cl.vrol.models.entity.Jugador;
+import cl.vrol.models.entity.Mesa;
 import cl.vrol.models.service.IJugadorService;
 import cl.vrol.models.service.IMesaService;
 import jakarta.validation.Valid;
@@ -80,7 +80,7 @@ public class JugadorController {
 			
 			if(jugador == null) {
 				System.out.println("Error: El ID de Jugador no exste!");
-				attribute.addFlashAttribute("error", "ATENCIÓN: El ID de Jugador no exIste!");
+				attribute.addFlashAttribute("error", "ATENCIÓN: El ID de Jugador no existe!");
 				return "redirect:/views/jugadores/";
 			}
 		}else {

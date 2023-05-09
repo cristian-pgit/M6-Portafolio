@@ -51,36 +51,51 @@
 								<li><a class="dropdown-item disabled"
 									href="https://forms.gle/xUiy9rVNs82mVQ228">Inscripcion Junta</a></li>
 							</ul></li>
-							<li class="nav-item dropdown"><a
+							<li class="nav-item dropdown" th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+								<a class="nav-link dropdown-toggle" href="#" role="button"
+							        data-bs-toggle="dropdown" aria-expanded="false" th:classappend="show"> Crear</a>
+							    <ul class="dropdown-menu" th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+							        <li class="nav-item d-none" th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+							        	<a class="nav-link" th:href="@{/}">Crear Mesa</a>
+							        </li>
+							        <li class="nav-item d-none" th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+							        	<a class="nav-link" th:href="@{/}">Crear Usuario</a>
+							        </li>
+							    </ul>
+							</li>
+						<li class="nav-item dropdown" th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show"><a
 								class="nav-link dropdown-toggle" href="#" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false"> Crear</a>
-								<ul class="dropdown-menu">
-								<li class="nav-item d-none"><a class="nav-link" th:href=@{/}>Crear Mesa</a>
+								data-bs-toggle="dropdown" aria-expanded="false" > Listar</a>
+								<ul class="dropdown-menu" th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+								<li class="nav-item" th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+									<a class="nav-link" th:href=@{/views/jugadores/}>Listar Inscripciones</a>
 								</li>
-								<li class="nav-item d-none"><a class="nav-link" th:href=@{/}>Crear Usuario</a>
+								<li class="nav-item  d-none" >
+									<a class="nav-link" th:href=@{/}>Listar Usuario</a>
 								</li>
-							</ul></li>
-						<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false"> Listar</a>
-								<ul class="dropdown-menu">
-								<li class="nav-item"><a class="nav-link" th:href=@{/views/jugadores/}>Listar Inscripciones</a>
-								</li>
-								<li class="nav-item  d-none"><a class="nav-link" th:href=@{/}>Listar Usuario</a>
-								</li>
-						</ul></li>
+								</ul>
+						</li>
 					</ul>
-					<div class="collapse navbar-collapse" id="navbarNavDropdown">
-						<div class="loginSector d-flex">
-							<div class="d-flex ms-auto">
-								<p class="nav-link text-info" id="texlogin">
-									Welcome,&nbsp;<strong class="text-success" th:text="${session.username}"></strong>&nbsp;</p>
-								<form action="logout" method="POST">
-									<button id="btnlogout" class="btn btn-outline-danger btn-sm" type="submit">Logout</button>
-								</form>
+					<ul class="navbar-nav ml-auto">
+						<li th:if="${session.perfil != 'Narrador' || session.perfil != 'Administrador'}" >
+							<a class="btn btn-outline-info btn-sm" th:href="@{/views/login/}" 
+							th:if="${session.perfil != 'Narrador' || session.perfil != 'Administrador'}">Login</a>
+						</li>
+						<li class="dropdown" 
+						th:if="${session.perfil != 'Narrador' || session.perfil != 'Administrador'}" th:classappend="show">
+							<a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenulink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+							th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+								<span th:text="${nick}" ></span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink"
+							th:if="${session.perfil == 'Narrador' || session.perfil == 'Administrador'}" th:classappend="show">
+								<a class="dropdown-item d-none" href="#">Action</a>
+								<a class="dropdown-item d-none" href="#">Another action</a>
+								<a class="dropdown-item d-none" href="#">Something else here</a>
+								<a class="dropdown-item text-danger" th:href="@{/views/login/logout}">Logout</a>
 							</div>
-						</div>
-					</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</nav>

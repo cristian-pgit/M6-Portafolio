@@ -1,6 +1,6 @@
 package cl.vrol.models.service;
 
-import cl.vrol.model.entity.Contacto;
+import cl.vrol.models.entity.Contacto;
 
 public interface IContactoService {
 	

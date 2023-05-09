@@ -3,7 +3,7 @@ package cl.vrol.models.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import cl.vrol.model.entity.Contacto;
+import cl.vrol.models.entity.Contacto;
 import cl.vrol.models.repository.ContactoRepository;
 
 @Service
