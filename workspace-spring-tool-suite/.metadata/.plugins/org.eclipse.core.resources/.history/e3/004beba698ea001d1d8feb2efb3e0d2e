@@ -1,3 +1,0 @@
-# Thymeleaf Configuration
-spring.thymeleaf.cache=false
-spring.thymeleaf.check-template-location=false

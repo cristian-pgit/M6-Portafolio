@@ -1,3 +1,0 @@
-INDEX VERSION 1.132
-C:\Users\diurno\Documents\workspace-spring-tool-suite\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2684536103.index
-\VrolSite\src\main\java

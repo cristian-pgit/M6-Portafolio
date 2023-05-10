@@ -1,16 +1,56 @@
 function inscribeme() {
-    swal("VRol", "Inscrit@ Compi", "success", {button: "Gracias!"});
+    swal.fire("VRol", "Inscrit@ Compi", "success", {button: "Gracias!"});
  
 }
 
 function averigua() {
-    swal("VRol", "Te contactaremos", "success", {button: "Vale!"});
+    Swal.fire(
+	  'VRol Informa:',
+	  'Te Contactaremos!',
+	  'success'
+	)
  
 }
 
-
-
 $(document).ready(function() {
+    $(".close").click(function() {
+        $(".alert").alert("close");
+    });
+});
+
+/*function confirmDelete() {
+  return Swal.fire({
+    title: 'Estas Seguro?',
+    text: "No seras capas de revertir esto!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, borralo!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Eliminado!',
+        'El Jugador Inscrito ha sido Eliminado',
+        'success'
+      );
+      return true;
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      return false;
+    }
+  });
+}*/
+
+
+
+
+
+
+
+
+
+
+/*$(document).ready(function() {
 	displayFormFields();
 });
 
@@ -34,4 +74,4 @@ try {
   }
 } catch (error) {
   console.log(error);
-}
+}*/
