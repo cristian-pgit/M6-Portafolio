@@ -46,6 +46,17 @@ nav:navbar-brand{
 	color: lightgrey;
 }
 
+.alert{
+	width: 100%;
+	opacity:0.8;
+	font-weight: bold;
+	color: white;
+}
+
+.textvis{
+	opacity: 1;
+}
+
 .close {
   color: white;
   opacity: 1;

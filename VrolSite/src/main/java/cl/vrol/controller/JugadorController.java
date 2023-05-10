@@ -18,6 +18,7 @@ import cl.vrol.models.entity.Jugador;
 import cl.vrol.models.entity.Mesa;
 import cl.vrol.models.service.IJugadorService;
 import cl.vrol.models.service.IMesaService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -31,7 +32,16 @@ public class JugadorController {
 	private IMesaService mesaService;
 	
 	@GetMapping("/")
-	public String listarJugadores(Model model) {
+	public String listarJugadores(Model model, HttpSession session, RedirectAttributes attribute) {
+		
+		if (session.getAttribute("perfil") == null ) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
 		List<Jugador> listaInscritos = playerService.listarTodos();
 		List<Mesa> listaMesas = mesaService.listaMesas();
 		model.addAttribute("titulo", "Lista de Inscritos");
@@ -41,7 +51,9 @@ public class JugadorController {
 	}
 	
 	@GetMapping("/nuevoinscrito")
-	public String crearInscrito(Model model) {
+	public String crearInscrito(Model model, HttpSession session, RedirectAttributes attribute) {
+		
+
 		
 		Jugador jugador = new Jugador();
 		List<Mesa> listaMesas = mesaService.listaMesas();
@@ -69,12 +81,20 @@ public class JugadorController {
 		playerService.guardar(jugador);
 		System.out.println("Jugador Inscrito");
 		attribute.addFlashAttribute("success", "Jugador Inscrito!");
-		return "redirect:/views/jugadores/";
+		return "redirect:/";
 	}
 	
 	@GetMapping("/edit/{id}")
 	public String editarInscrito(@PathVariable("id") Long idInscrito, 
-			Model model, RedirectAttributes attribute) {
+			Model model, RedirectAttributes attribute, HttpSession session) {
+		
+		if (session.getAttribute("perfil") == null ) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
 		
 		Jugador jugador = null;
 		
@@ -97,13 +117,22 @@ public class JugadorController {
 		model.addAttribute("titulo", "Editar Jugador");
 		model.addAttribute("jugador", jugador);
 		model.addAttribute("mesas", listaMesas);
+		attribute.addFlashAttribute("info", "Jugador Inscrito Editado con Exito!");
 		
 		return "/views/jugadores/frmInscrito";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String eliminarInscrito(@PathVariable("id") Long idInscrito
-			, RedirectAttributes attribute) {
+			, RedirectAttributes attribute, HttpSession session, Model model) {
+		
+		if (session.getAttribute("perfil") == null ) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
 		
 		Jugador jugador = null;
 		
@@ -130,7 +159,16 @@ public class JugadorController {
 
 	
 	@GetMapping("/ordAsc")
-	public String listarJugadoresAsc(Model model) {
+	public String listarJugadoresAsc(Model model, HttpSession session, RedirectAttributes attribute) {
+		
+		if (session.getAttribute("perfil") == null ) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
 		List<Jugador> listaInscritos = playerService.findAllbyOrderIdAsc();
 		List<Mesa> listaMesas = mesaService.listaMesas();
 		model.addAttribute("titulo", "Lista de Inscritos - Ascendente");
@@ -140,7 +178,16 @@ public class JugadorController {
 	}
 	
 	@GetMapping("/ordDes")
-	public String listarJugadoresDesc(Model model) {
+	public String listarJugadoresDesc(Model model, HttpSession session, RedirectAttributes attribute) {
+		
+		if (session.getAttribute("perfil") == null ) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
 		List<Jugador> listaInscritos = playerService.findAllbyOrderIdDes();
 		List<Mesa> listaMesas = mesaService.listaMesas();
 		model.addAttribute("titulo", "Lista de Inscritos - Descendente");
@@ -150,7 +197,17 @@ public class JugadorController {
 	}
 	
 	@GetMapping("/bymesa")
-	public String listarJugadoresByMesaId(@RequestParam(name = "idMesa") Long mesaid, Model model) {
+	public String listarJugadoresByMesaId(@RequestParam(name = "idMesa") Long mesaid, Model model, 
+			HttpSession session, RedirectAttributes attribute) {
+		
+		if (session.getAttribute("perfil") == null ) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
 		Mesa mesa = mesaService.buscarPorMesaID(mesaid);
 		List<Jugador> listaInscritos = playerService.findAllByMesa(mesa);
 		List<Mesa> listaMesas = mesaService.listaMesas();
@@ -162,7 +219,17 @@ public class JugadorController {
 	}
 	
 	@GetMapping("/group")
-    public String groupByMesa(@RequestParam(name = "idMesa") Long idMesa, Model model) {
+    public String groupByMesa(@RequestParam(name = "idMesa") Long idMesa, Model model, 
+    		HttpSession session, RedirectAttributes attribute) {
+		
+		if (session.getAttribute("perfil") == null ) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
         Long contar = playerService.findByMesa(idMesa);
         List<Mesa> listaMesas = mesaService.listaMesas();
         model.addAttribute("titulo", "Cantidad de Jugadores Inscritos por Mesa");

@@ -55,7 +55,7 @@
 							        data-bs-toggle="dropdown" aria-expanded="false" > Narrador</a>
 							    <ul class="dropdown-menu" >
 							        <li class="nav-item" >
-							        	<a class="nav-link" th:href="@{/}">Crear Mesa</a>
+							        	<a class="nav-link text-muted" th:href="@{/}">Crear Mesa</a>
 							        </li>
 							        <li class="nav-item" >
 											<a class="nav-link" th:href=@{/views/jugadores/}>Listar Inscripciones</a>
@@ -71,7 +71,7 @@
 												<a class="nav-link" th:href=@{/views/usuarios/}>Listar Usuarios</a>
 											</li>
 											<li class="nav-item"  >
-									        	<a class="nav-link" th:href="@{/}">Crear Usuario</a>
+									        	<a class="nav-link" th:href="@{/views/usuarios/nuevousuario}">Crear Usuario</a>
 									        </li>
 										</div>
 									</ul>
@@ -92,7 +92,7 @@
 						    </a>
 						    	<div class="dropdown-menu dropdown-menu-end ml-auto" aria-labelledby="dropdownMenuLink"
 						             style="flex: 1; justify-content: flex-end;">
-						        	<a class="dropdown-item " href="">Editar Perfil</a>				
+						        	<a class="dropdown-item "  href="">Editar Perfil</a>				
 						            <a class="dropdown-item text-danger ml-auto" th:href="@{/views/login/logout}" type="button">Logout</a>
 						        </div>
 						</form>
@@ -101,19 +101,19 @@
 			</div>
 		</nav>
 		<!-- MENSAJES -->
-		<div class="alert alert-success alert-dismissable" th:if="${success != null}">
+		<div class="alert alert-success alert-dismissable position-absolute" th:if="${success != null}">
 			<label th:text="${success}"></label>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
 		</div>
-		<div class="alert alert-danger alert-dismissable" th:if="${error != null}">
-			<label th:text="${error}"></label>
+		<div class="alert alert-danger alert-dismissable position-absolute" th:if="${error != null}">
+			<label class="textvis" th:text="${error}"></label>
 			<button type="button" class="close float-right" data-dismiss="alert" >&times;</button>
 		</div>
 		<div class="alert alert-warning alert-dismissable" th:if="${warning != null}">
 			<label th:text="${warning}"></label>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
 		</div>
-		<div class="alert alert-info alert-dismissable" th:if="${info != null}">
+		<div class="alert alert-info alert-dismissable position-absolute" th:if="${info != null}">
 			<label th:text="${info}"></label>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">&times;</button>
 		</div>

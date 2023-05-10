@@ -4,6 +4,12 @@
 </head>
 <body>
 <header th:replace="plantilla/template :: header"></header>
+<th:block th:if="${session.perfil == null}">
+      <!-- Redirect to the root URL -->
+      <script th:inline="javascript">
+        window.location.href = '/';
+      </script>
+    </th:block>
 	<br>
 	<div class="container">
 		<h1 class="text-center" th:text="${titulo}"></h1>

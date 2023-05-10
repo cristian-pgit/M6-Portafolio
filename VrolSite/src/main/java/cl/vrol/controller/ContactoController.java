@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cl.vrol.models.entity.Contacto;
 import cl.vrol.models.service.IContactoService;
@@ -27,9 +28,10 @@ public class ContactoController {
 	}
 	
 	@PostMapping("/enviar")
-	public String enviarMsj(@ModelAttribute Contacto contacto) {
+	public String enviarMsj(@ModelAttribute Contacto contacto, RedirectAttributes attribute) {
 		contactoService.guardar(contacto);
 		System.out.println("Contacto Enviado: "+contacto);
+		attribute.addFlashAttribute("success", "Mensaje enviado con Exito!");
 		return "redirect:/views/contacto/";
 	}
 

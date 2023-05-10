@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cl.vrol.models.entity.Usuario;
 import cl.vrol.models.service.IUsuarioService;
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -25,15 +26,32 @@ public class UsuarioController {
 	private IUsuarioService userService;
 	
 	@GetMapping("/")
-	public String listarUsuarios(Model model) {
+	public String listarUsuarios(Model model, HttpSession session, RedirectAttributes attribute) {
+		
+		if (session.getAttribute("perfil") == null || "Narrador".equals(session.getAttribute("perfil"))) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
 		List<Usuario> listaUsuarios = userService.listarTodos();
 		model.addAttribute("titulo", "Lista de Usuarios");
 		model.addAttribute("usuarios", listaUsuarios);
 		return "/views/usuarios/listarusuarios";
 	}
 	
-	@GetMapping("nuevousuario")
-	public String crearUsuario(Model model) {
+	@GetMapping("/nuevousuario")
+	public String crearUsuario(Model model, HttpSession session, RedirectAttributes attribute) {
+		
+		if (session.getAttribute("perfil") == null || "Narrador".equals(session.getAttribute("perfil"))) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
 		
 		Usuario user = new Usuario();
 		
@@ -45,7 +63,15 @@ public class UsuarioController {
 	
 	@PostMapping("/registrar")
 	public String registrar(@Valid @ModelAttribute Usuario user, BindingResult result,
-			Model model, RedirectAttributes attribute) {
+			Model model, RedirectAttributes attribute, HttpSession session) {
+		
+		if (session.getAttribute("perfil") == null || "Narrador".equals(session.getAttribute("perfil"))) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
 		
 		if(result.hasErrors()) {
 			model.addAttribute("titulo", "Registrar Nuevo Usuario");
@@ -63,8 +89,16 @@ public class UsuarioController {
 	
 	@GetMapping("/edit/{id}")
 	public String editarUsuario(@PathVariable("id") Long idUsuario,
-			Model model, RedirectAttributes attribute) {
+			Model model, RedirectAttributes attribute, HttpSession session) {
 		Usuario user = null;
+		
+		if (session.getAttribute("perfil") == null || "Narrador".equals(session.getAttribute("perfil"))) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
 		
 		if(idUsuario >0) {
 			user = userService.buscarPorId(idUsuario);
@@ -82,12 +116,22 @@ public class UsuarioController {
 		
 		model.addAttribute("titulo", "Editar Usuario");
 		model.addAttribute("usuario", user);
+		attribute.addFlashAttribute("info", "Usuario Editado con Exito!");
 		return "/views/usuarios/frmUsuario";
 	}
 	
 	@GetMapping("/delete/{id}")
 	public String eliminarUsuario(@PathVariable("id") Long idUsuario,
-			Model model, RedirectAttributes attribute) {
+			Model model, RedirectAttributes attribute, HttpSession session) {
+		
+		if (session.getAttribute("perfil") == null || "Narrador".equals(session.getAttribute("perfil"))) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
 		Usuario user = null;
 		
 		if(idUsuario >0) {
@@ -107,7 +151,40 @@ public class UsuarioController {
 		userService.eliminar(idUsuario);
 		System.out.println("Usuario Eliminado con Exito");
 		model.addAttribute("titulo", "Editar Usuario");
-		return "/views/usuarios/frmUsuario";
+		attribute.addFlashAttribute("info", "ATENCIÓN: Usuario Eliminado");
+		return "redirect:/views/usuarios/";
+	}
+	
+	@GetMapping("/editperfil/{id}")
+	public String editarPerfil(@PathVariable("id") Long idUsuario,
+			Model model, RedirectAttributes attribute, HttpSession session) {
+		Usuario user = null;
+		
+		if (session.getAttribute("perfil") == null || "Narrador".equals(session.getAttribute("perfil"))) {
+			System.out.println("entro");
+	        // anadir error x login no autorizado
+			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
+	        // Redirect to the root URL
+	        return "redirect:/";
+	    }
+		
+		if(idUsuario >0) {
+			user = userService.buscarPorId(idUsuario);
+			
+			if(user == null) {
+				System.out.println("Error: El ID de Usuario no existe");
+				attribute.addFlashAttribute("error", "ATENCIÓN: El ID de Usuario no existe!");
+				return "redirect:/views/usuarios/";
+			}
+		} else {
+			System.out.println("Error: Error con el ID de Usuario");
+			attribute.addFlashAttribute("error", "ATENCIÓN: Error con el ID de Usuario");
+			return "redirect:/views/usuarios/";
+		}
+		
+		model.addAttribute("titulo", "Editar Usuario");
+		model.addAttribute("usuario", user);
+		return "/views/usuarios/editarPerfil";
 	}
 	
 	
