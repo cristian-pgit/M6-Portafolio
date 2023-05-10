@@ -30,9 +30,11 @@ La solucion es la creacion de una pagina que se encuentre de forma centralizada 
 
 #### Objetivos a Cumplir
 - [x] Estructura basica
-- [ ] Desarrollar Estructura de Paginas visibles
-- [ ] Crear Base de Datos
-- [ ] Lograr Conexion a Base de Datos
-- [ ] Trabajar Funcionalidad
-- [ ] Add delight to the experience when all tasks are complete :tada:
-
+- [x] Desarrollar Estructura de Paginas visibles
+- [x] Crear Base de Datos
+- [x] Lograr Conexion a Base de Datos
+- [x] Trabajar Funcionalidad
+- [x] Servicio REST
+- [x] Add delight to the experience when all tasks are complete :tada:
+- [ ] Terminar Vistas (opcionales)
+- [ ] Terminar otras Funcionalidades (opcionales)
