@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cl.vrol.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +15,24 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import cl.vrol.models.entity.Contacto;
 import cl.vrol.models.service.IContactoService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ContactoController.
+ */
 @Controller
 @RequestMapping("/views/contacto")
 public class ContactoController {
 	
+	/** The contacto service. */
 	@Autowired
 	private IContactoService contactoService;
 	
+	/**
+	 * Contacto.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@GetMapping("/")
 	public String contacto(Model model) {
 		Contacto contacto = new Contacto(); 
@@ -27,6 +41,13 @@ public class ContactoController {
 		return "/views/contacto/contacto";
 	}
 	
+	/**
+	 * Enviar msj.
+	 *
+	 * @param contacto the contacto
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@PostMapping("/enviar")
 	public String enviarMsj(@ModelAttribute Contacto contacto, RedirectAttributes attribute) {
 		contactoService.guardar(contacto);

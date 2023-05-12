@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cl.vrol.controller;
 
 import java.util.List;
@@ -12,13 +15,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cl.vrol.models.entity.Mesa;
 import cl.vrol.models.service.IMesaService;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MesasController.
+ */
 @Controller
 @RequestMapping("/mesas")
 public class MesasController {
 	
+	/** The mesa service. */
 	@Autowired
 	private IMesaService mesaService;
 	
+	/**
+	 * Listar jugadores.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@GetMapping("/")
 	public String listarJugadores(Model model) {
 		List<Mesa> mesas = mesaService.listaMesas();
@@ -27,6 +41,13 @@ public class MesasController {
 		return "mesas";
 	}
 	
+	/**
+	 * Mostrar mesa.
+	 *
+	 * @param model the model
+	 * @param id the id
+	 * @return the string
+	 */
 	@GetMapping("/ver/{id}")
 	public String mostrarMesa(Model model, @PathVariable Long id) {
 	    Mesa mesa = mesaService.buscarPorMesaID(id);

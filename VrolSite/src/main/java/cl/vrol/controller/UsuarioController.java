@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cl.vrol.controller;
 
 import java.util.List;
@@ -18,13 +21,26 @@ import cl.vrol.models.service.IUsuarioService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UsuarioController.
+ */
 @Controller
 @RequestMapping("/views/usuarios")
 public class UsuarioController {
 
+	/** The user service. */
 	@Autowired
 	private IUsuarioService userService;
 	
+	/**
+	 * Listar usuarios.
+	 *
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/")
 	public String listarUsuarios(Model model, HttpSession session, RedirectAttributes attribute) {
 		
@@ -42,6 +58,14 @@ public class UsuarioController {
 		return "/views/usuarios/listarusuarios";
 	}
 	
+	/**
+	 * Crear usuario.
+	 *
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/nuevousuario")
 	public String crearUsuario(Model model, HttpSession session, RedirectAttributes attribute) {
 		
@@ -61,6 +85,16 @@ public class UsuarioController {
 		return "/views/usuarios/frmUsuario";
 	}
 	
+	/**
+	 * Registrar.
+	 *
+	 * @param user the user
+	 * @param result the result
+	 * @param model the model
+	 * @param attribute the attribute
+	 * @param session the session
+	 * @return the string
+	 */
 	@PostMapping("/registrar")
 	public String registrar(@Valid @ModelAttribute Usuario user, BindingResult result,
 			Model model, RedirectAttributes attribute, HttpSession session) {
@@ -87,6 +121,15 @@ public class UsuarioController {
 		
 	}
 	
+	/**
+	 * Editar usuario.
+	 *
+	 * @param idUsuario the id usuario
+	 * @param model the model
+	 * @param attribute the attribute
+	 * @param session the session
+	 * @return the string
+	 */
 	@GetMapping("/edit/{id}")
 	public String editarUsuario(@PathVariable("id") Long idUsuario,
 			Model model, RedirectAttributes attribute, HttpSession session) {
@@ -120,6 +163,15 @@ public class UsuarioController {
 		return "/views/usuarios/frmUsuario";
 	}
 	
+	/**
+	 * Eliminar usuario.
+	 *
+	 * @param idUsuario the id usuario
+	 * @param model the model
+	 * @param attribute the attribute
+	 * @param session the session
+	 * @return the string
+	 */
 	@GetMapping("/delete/{id}")
 	public String eliminarUsuario(@PathVariable("id") Long idUsuario,
 			Model model, RedirectAttributes attribute, HttpSession session) {
@@ -155,6 +207,15 @@ public class UsuarioController {
 		return "redirect:/views/usuarios/";
 	}
 	
+	/**
+	 * Editar perfil.
+	 *
+	 * @param idUsuario the id usuario
+	 * @param model the model
+	 * @param attribute the attribute
+	 * @param session the session
+	 * @return the string
+	 */
 	@GetMapping("/editperfil/{id}")
 	public String editarPerfil(@PathVariable("id") Long idUsuario,
 			Model model, RedirectAttributes attribute, HttpSession session) {

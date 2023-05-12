@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cl.vrol.tests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -20,20 +23,32 @@ import cl.vrol.models.entity.Mesa;
 import cl.vrol.models.repository.JugadorRepository;
 import cl.vrol.models.service.JugadorServiceImpl;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JugadorServiceImplTest.
+ */
 @SpringBootTest
 public class JugadorServiceImplTest {
 
+	/** The jugador repository. */
 	@Mock
     private JugadorRepository jugadorRepository;
 
+    /** The jugador service. */
     @InjectMocks
     private JugadorServiceImpl jugadorService;
 
+    /**
+     * Sets the up.
+     */
     @BeforeEach
     public void setUp() {
         // Setup mock objects if needed
     }
 
+    /**
+     * Test listar todos.
+     */
     @Test
     public void testListarTodos() {
         Jugador jugador = new Jugador();
@@ -47,6 +62,9 @@ public class JugadorServiceImplTest {
         assertEquals(jugadores, result);
     }
 
+    /**
+     * Test guardar.
+     */
     @Test
     public void testGuardar() {
         Jugador jugador = new Jugador();
@@ -58,6 +76,9 @@ public class JugadorServiceImplTest {
         // Assert no exception is thrown
     }
 
+    /**
+     * Test buscar por id.
+     */
     @Test
     public void testBuscarPorId() {
         Jugador jugador = new Jugador();
@@ -69,12 +90,18 @@ public class JugadorServiceImplTest {
         assertEquals(jugador, result);
     }
 
+    /**
+     * Test eliminar.
+     */
     @Test
     public void testEliminar() {
         // Assert no exception is thrown
         jugadorService.eliminar(1L);
     }
 
+    /**
+     * Test find allby order id asc.
+     */
     @Test
     public void testFindAllbyOrderIdAsc() {
         Jugador jugador = new Jugador();
@@ -88,6 +115,9 @@ public class JugadorServiceImplTest {
         assertEquals(jugadores, result);
     }
 
+    /**
+     * Test find allby order id des.
+     */
     @Test
     public void testFindAllbyOrderIdDes() {
         Jugador jugador = new Jugador();
@@ -101,6 +131,9 @@ public class JugadorServiceImplTest {
         assertEquals(jugadores, result);
     }
 
+    /**
+     * Test find all by mesa.
+     */
     @Test
     public void testFindAllByMesa() {
         Jugador jugador = new Jugador();

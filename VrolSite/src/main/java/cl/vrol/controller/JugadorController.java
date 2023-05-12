@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cl.vrol.controller;
 
 import java.util.List;
@@ -21,16 +24,30 @@ import cl.vrol.models.service.IMesaService;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JugadorController.
+ */
 @Controller
 @RequestMapping("/views/jugadores")
 public class JugadorController {
 	
+	/** The player service. */
 	@Autowired
 	private IJugadorService playerService;
 	
+	/** The mesa service. */
 	@Autowired
 	private IMesaService mesaService;
 	
+	/**
+	 * Listar jugadores.
+	 *
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/")
 	public String listarJugadores(Model model, HttpSession session, RedirectAttributes attribute) {
 		
@@ -48,6 +65,14 @@ public class JugadorController {
 		return "/views/jugadores/listarinscritos";
 	}
 	
+	/**
+	 * Crear inscrito.
+	 *
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/nuevoinscrito")
 	public String crearInscrito(Model model, HttpSession session, RedirectAttributes attribute) {
 		
@@ -63,6 +88,15 @@ public class JugadorController {
 		return "/views/jugadores/frmInscrito";
 	}
 	
+	/**
+	 * Inscribir.
+	 *
+	 * @param jugador the jugador
+	 * @param result the result
+	 * @param model the model
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@PostMapping("/inscribir")
 	public String inscribir(@Valid @ModelAttribute Jugador jugador, BindingResult result, 
 			Model model, RedirectAttributes attribute) {
@@ -82,6 +116,15 @@ public class JugadorController {
 		return "redirect:/";
 	}
 	
+	/**
+	 * Editar inscrito.
+	 *
+	 * @param idInscrito the id inscrito
+	 * @param model the model
+	 * @param attribute the attribute
+	 * @param session the session
+	 * @return the string
+	 */
 	@GetMapping("/edit/{id}")
 	public String editarInscrito(@PathVariable("id") Long idInscrito, 
 			Model model, RedirectAttributes attribute, HttpSession session) {
@@ -120,6 +163,15 @@ public class JugadorController {
 		return "/views/jugadores/frmInscrito";
 	}
 	
+	/**
+	 * Eliminar inscrito.
+	 *
+	 * @param idInscrito the id inscrito
+	 * @param attribute the attribute
+	 * @param session the session
+	 * @param model the model
+	 * @return the string
+	 */
 	@GetMapping("/delete/{id}")
 	public String eliminarInscrito(@PathVariable("id") Long idInscrito
 			, RedirectAttributes attribute, HttpSession session, Model model) {
@@ -156,6 +208,14 @@ public class JugadorController {
 	}
 
 	
+	/**
+	 * Listar jugadores asc.
+	 *
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/ordAsc")
 	public String listarJugadoresAsc(Model model, HttpSession session, RedirectAttributes attribute) {
 		
@@ -175,6 +235,14 @@ public class JugadorController {
 		return "/views/jugadores/listarordasc";
 	}
 	
+	/**
+	 * Listar jugadores desc.
+	 *
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/ordDes")
 	public String listarJugadoresDesc(Model model, HttpSession session, RedirectAttributes attribute) {
 		
@@ -194,6 +262,15 @@ public class JugadorController {
 		return "/views/jugadores/listarorddes";
 	}
 	
+	/**
+	 * Listar jugadores by mesa id.
+	 *
+	 * @param mesaid the mesaid
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/bymesa")
 	public String listarJugadoresByMesaId(@RequestParam(name = "idMesa") Long mesaid, Model model, 
 			HttpSession session, RedirectAttributes attribute) {
@@ -216,6 +293,15 @@ public class JugadorController {
 		return "/views/jugadores/bymesa";
 	}
 	
+	/**
+	 * Group by mesa.
+	 *
+	 * @param idMesa the id mesa
+	 * @param model the model
+	 * @param session the session
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@GetMapping("/group")
     public String groupByMesa(@RequestParam(name = "idMesa") Long idMesa, Model model, 
     		HttpSession session, RedirectAttributes attribute) {

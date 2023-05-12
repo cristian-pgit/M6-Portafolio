@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cl.vrol.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +20,25 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class LoginController.
+ */
 @Controller
 @RequestMapping("/views/login")
 public class LoginController {
 	
+	/** The user service. */
 	@Autowired
 	private IUsuarioService userService;
 	
 	
+	/**
+	 * Ir login.
+	 *
+	 * @param model the model
+	 * @return the string
+	 */
 	@GetMapping("/")
 	public String irLogin(Model model) {
 		Usuario user = new Usuario();
@@ -33,6 +47,16 @@ public class LoginController {
 		return "views/login/frmLogin";
 	}
 	
+	/**
+	 * Login.
+	 *
+	 * @param request the request
+	 * @param userName the user name
+	 * @param password the password
+	 * @param model the model
+	 * @param attribute the attribute
+	 * @return the string
+	 */
 	@PostMapping("/in")
 	public String login(HttpServletRequest request, @RequestParam("userName") String userName,
 			@RequestParam("password") String password, Model model, RedirectAttributes attribute) {
@@ -64,6 +88,12 @@ public class LoginController {
 		return "redirect:/";
 	}
 	
+	/**
+	 * Logout.
+	 *
+	 * @param request the request
+	 * @return the string
+	 */
 	@GetMapping("/logout")
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();

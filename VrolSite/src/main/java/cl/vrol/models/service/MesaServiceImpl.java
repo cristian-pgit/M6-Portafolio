@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package cl.vrol.models.service;
 
 import java.util.List;
@@ -10,27 +13,50 @@ import cl.vrol.models.entity.Mesa;
 import cl.vrol.models.repository.JugadorRepository;
 import cl.vrol.models.repository.MesaRepository;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MesaServiceImpl.
+ */
 @Service
 public class MesaServiceImpl implements IMesaService{
 
+	/** The mesa repository. */
 	@Autowired
 	private MesaRepository mesaRepository;
 	
+	/** The jugador repository. */
 	@Autowired
 	private JugadorRepository jugadorRepository;
 	
+	/**
+	 * Lista mesas.
+	 *
+	 * @return the list
+	 */
 	@Override
 	public List<Mesa> listaMesas() {
 		
 		return (List<Mesa>) mesaRepository.findAll();
 	}
 
+	/**
+	 * Buscar por mesa ID.
+	 *
+	 * @param idMesa the id mesa
+	 * @return the mesa
+	 */
 	@Override
 	public Mesa buscarPorMesaID(Long idMesa) {
 
 		return mesaRepository.findById(idMesa).orElse(null);
 	}
 	
+	/**
+	 * Gets the cupos disponibles.
+	 *
+	 * @param idMesa the id mesa
+	 * @return the cupos disponibles
+	 */
 	@Override
 	public int getCuposDisponibles(Long idMesa) {
 	    Mesa mesa = buscarPorMesaID(idMesa);
