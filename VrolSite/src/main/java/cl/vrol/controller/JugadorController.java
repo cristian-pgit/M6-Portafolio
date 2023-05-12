@@ -43,10 +43,8 @@ public class JugadorController {
 	    }
 		
 		List<Jugador> listaInscritos = playerService.listarTodos();
-		List<Mesa> listaMesas = mesaService.listaMesas();
 		model.addAttribute("titulo", "Lista de Inscritos");
 		model.addAttribute("inscritos", listaInscritos);
-		model.addAttribute("mesas", listaMesas);
 		return "/views/jugadores/listarinscritos";
 	}
 	

@@ -60,6 +60,7 @@ public class LoginController {
 		session.setAttribute("nick", nick);
 		session.setAttribute("perfil", perfil);
 		System.out.println("Se ha conectado: "+user.getNick()+"  y su perfil es: "+perfil);
+		attribute.addFlashAttribute("info", "Se ha logueado: "+nick);
 		return "redirect:/";
 	}
 	

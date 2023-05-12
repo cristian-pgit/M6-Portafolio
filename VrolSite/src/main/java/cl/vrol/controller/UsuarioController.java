@@ -32,7 +32,7 @@ public class UsuarioController {
 			System.out.println("entro");
 	        // anadir error x login no autorizado
 			attribute.addFlashAttribute("error", "No Tienes Permiso para ver esta página");
-	        // Redirect to the root URL
+	        // Redirigir a home
 	        return "redirect:/";
 	    }
 		

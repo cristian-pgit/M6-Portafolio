@@ -95,6 +95,4 @@ public class Jugador implements Serializable {
 		return builder.toString();
 	}
 
-	
-
 }

@@ -13,5 +13,4 @@ public interface IMesaService {
 	int getCuposDisponibles(Long idMesa);
 	
 	
-
 }
