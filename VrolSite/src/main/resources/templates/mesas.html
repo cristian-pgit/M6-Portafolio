@@ -9,7 +9,7 @@
 <br><br>
 	<div th:each="mesa:${mesas}" class="container-fluid">
 	<br>
-		<div class="card border-info mb-2" style="max-width: 22rem; max-height: 35rem;">
+		<div class="card border-info mb-2" style="max-width: 22rem; height: 25rem;">
 		  <div class="card-header" th:text="${mesa.juego}"></div>
 		  <div class="card-body">
 		    <h4 class="card-title" th:text="${mesa.nombreMesa}"></h4>
@@ -31,18 +31,18 @@
 						<td class="text-info" th:text="${mesa.dia}"></td>
 					</tr>
 					<tr>
-						<th class="text-warning">Descripción:&nbsp;  </th>
-						<td class="text-info" th:text="${mesa.desCorta}"></td>
+						<th class="text-warning"style="vertical-align: top;">Descripción:&nbsp;  </th>
+						<td class="text-info" th:text="${mesa.desCorta}"style="vertical-align: top;"></td>
 					</tr>
 					<tr>
-						<th class="text-warning">TAGS: </th>
+						<th class="text-warning" style="vertical-align: top;">TAGS: </th>
 						<td class="text-info" th:text="${mesa.tags}"></td>
 					</tr>
 				</table>
-		    <div class="card-footer bg-dark text-center" id="botbtn">
-				<a class="btn btn-outline-light btn-sm" th:href="@{/mesas/ver/}+${mesa.idMesa}" th:text="VerMas"></a>
-			</div>
 		  </div>
+		  		<div class="card-footer bg-dark text-center" id="botbtn">
+					<a class="btn btn-outline-info btn-sm" th:href="@{/mesas/ver/}+${mesa.idMesa}" > Ver Mas</a>
+				</div>
 		</div>
 	</div>
 </div>
