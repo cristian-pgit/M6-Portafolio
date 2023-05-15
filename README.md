@@ -90,71 +90,20 @@ La aplicación ofrece las siguientes funcionalidades principales:
     La seccion de Narrador, solo visible para usuarios con perfil de Narrador/Administrador, contiene la capacidad para listar los jugadores que se han inscrito a las mesas, permite editar su informacion en caso de saber que colocaron algun dato mal, y tambien la opcion de eliminarlos. Este menu en la seccion de Listar Inscritos cuenta con la opcion de desplegar una vista en formato PDF de los inscritos la cual puede ser guardada e impresa.
     
 - ### Menu Administrador (CRUD): 
-    La seccion de Narrador, solo visible para usuarios con perfil de Administrativo,  contiene la capacidad para listar usuarios, crear usuario, editar usuarios y eliminar usuarios. 
+    La seccion de Narrador, solo visible para usuarios con perfil de Administrativo,  contiene la capacidad para listar usuarios, crear usuario, editar usuarios y eliminar usuarios.
 
 # 4. Rúbrica Evaluativa.
 
-### Consulta a la base de datos:
+Hago mencion a rubrica evaluativa en [Documento de Portafolio](https://github.com/cristian-pgit/M6-Portafolio/blob/main/PROYECTO%20DE%20PORTAFOLIO.pdf)
 
-1.  Selecciona las columnas requeridas para presentar la información solicitada.
-Como mencionado anteriormente, al estar usando JPA, el uso y selección de muchas de las posibles
-“queries” esta ya hecha en si, JPA a través de JpaRepository, ya nos entrega las Queries mas básicas
-que componen el Select que son las funciones que parten de un find, Insert Into y Update, que se
-absorben en el save, y Delete por delete. [Ejemplo:]()
-
-2. Utiliza JOIN para relacionar la información de distintas tablas.
-
-3. [Utiliza WHERE para filtrar la información requerida.](hospital/src/main/java/unab/portafolio/dao/DAO.java#L164)
-
-4. [Utiliza cláusulas de ordenamiento para presentar la información.](hospital/src/main/java/unab/portafolio/dao/DAO.java#82)
-
-5. Utiliza cláusulas de agrupación de información para obtener datos agregados.
-    
-### Algoritmo de cálculo y unidades de prueba:
-
-6. [Utilización general del lenguaje, sintaxis, selección de tipos de datos, sentencias lógicas, expresiones, operaciones, comparaciones.](hospital/src/main/java/unab/portafolio/controller/EliminarPacienteController.java#L34)
-
-7. [Utilización de sentencias repetitivas.](hospital/src/main/java/unab/portafolio/controller/LoginController.java#L38)
-
-8. [Utilización de clases, encapsulamiento y resposabilidad única.](hospital/src/main/java/unab/portafolio/model/usuario/Usuario.java#L10)
-
-9. Se utilizan correctamente interfaces o relaciones de herencia para hacer polimorfismo donde fuese necesario.
-
-    - [Herencia.](hospital/src/main/java/unab/portafolio/model/paciente/PacienteDAO.java#L5)
-    - [Polimorfismo.](hospital/src/main/java/unab/portafolio/model/paciente/Paciente.java#L72)
-
-10. Convenciones y estilos de programación.
-
-    - [Variables.](hospital/src/main/java/unab/portafolio/model/paciente/Paciente.java#L17)
-    - [Métodos.](hospital/src/main/java/unab/portafolio/dao/DAO.java#L40)
-    
-11. [Utilización de unidades de prueba.](hospital/src/test/java/unab/portafolio/singleton/HibernateUtilityTest.java#L14)
-
-### Página web html y css:
-
-12. Utilización de tags html, estilos y responsividad.
-
-    - [Tags HTML.](hospital/src/main/webapp/WEB-INF/views/home.jsp#L3)
-    - [Estilos.](hospital/src/main/webapp/resources/style.css)
-    - [Responsividad.](hospital/src/main/webapp/WEB-INF/views/home.jsp#L27)
-
-13. [Utilización de Botstrap.](hospital/src/main/webapp/WEB-INF/views/login.jsp#L13)
-
-### Spring MVC:
-
-14. [Utilización de Controllers.](hospital/src/main/java/unab/portafolio/controller/LoginController.java#L16)
-
-15. [Utilización de vistas JSP y Taglib.](hospital/src/main/webapp/WEB-INF/views/verpaciente.jsp#67)
-
-16. [Creación Servicio Spring.]()
-
-
-### Desarrollo
-
-<p style="text-align: justify;">
-
-</p>
-
+# 5. Conclusión
+Puedo decir que ha sido una Aventura, sin más, entre buscar información, documentarse, ir, intentar,
+probar, seguir probando, ver las innumerables veces que el código me ha estallado. Pero el resultado
+final me deja satisfecho. Hay mucho mas por hacer para seguir perfeccionando este proyecto muchas
+mas funcionalidades que le quiero agregar y mucho más. ¿Y quién sabe?, aprendiendo nuevas
+tecnologías, permitirme darle una vuelta mas tarde y convertirla en una app para celular.
+A destacar debo dejar que hacer la lógica de la construcción de la inscripción de Jugadores y la de
+mesas es una que me hizo pasar bastante tiempo.
 
 
 #### Objetivos a Cumplir
