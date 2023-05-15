@@ -43,11 +43,110 @@ información de las mesas y eventos es que decidí tomar esto como caso de desar
 Portafolio.
 </p>
 
-### Solucion
+# Indice
 
-<p style="text-align: justify;">
-La solucion es la creacion de una pagina que se encuentre de forma centralizada con capacidades amplias para poder tanto desplegar informacion como asi tambien poder ser capaz de recibir input de los miembros de la comunidad, como podria ser el inscribirse a travez de la pagina a alguna mesa o evento en particular.
-</p>
+1. Instrucciones de instalación.
+2. Configuración de la Base de Datos.
+3. Usos y funcionalidad.
+4. Rúbrica Evaluativa.
+
+# 1. Instrucciones de Instalación.
+
+Sigue los siguientes pasos para instalar y configurar el proyecto en tu entorno local:
+
+1. Descarga un IDE para trabajar con proyectos en lenguaje Java. Algunas opciones populares incluyen Eclipse, STS y IntelliJ IDEA. (Durante el desarrollo se utilizó IntelliJ)
+
+2. Clona el repositorio del proyecto desde GitHub directamente desde el link: [Portafolio VRol Site](https://github.com/cristian-pgit/M6-Portafolio.git) y hacer un "git clone" con el.
+
+3. El proyecto utiliza la estructura de Maven, por lo que necesitarás instalar las dependencias definidas en el archivo pom.xml. Ejecuta el comando Update Maven Proyect, y de preferencia habilitar la opcion para forzar el update.
+
+4. Este al ser un proyecto Springboot no necesita tener un servidor local habilitado pues ya esta embebido Tomcat.
+
+5. Finalmente ejecuta el proyecto con el comando Run as Springboot proyect.
+
+# 2. Configuración de la Base de Datos
+
+El sistema de administración de base de datos relacionales utilizado en este proyecto es MySQL. A continuación, se detalla la configuración necesaria:
+
+- El script de creación de la base de datos se encuentra dentro del git de portafolio bajo el nombre de: `vroldbFinal.sql` Este script es un archivo de autocreacion, solo necesita que desde MySQL importe este archivo, este contiene ya datos pregenerados para poder mostrar datos y hacer login.
+
+Asegúrate de tener MySQL instalado en tu entorno de desarrollo antes de ejecutar el script mencionados anteriormente. Puedes obtener MySQL desde el sitio web oficial de MySQL.
+
+# 3. Usos y Funcionalidad
+
+La aplicación ofrece las siguientes funcionalidades principales:
+
+- ### Informacion general de la Comunidad: 
+    La aplicación cuenta con una vista inicial para hablar un poco de la Comunidad y las Normas, de ahi tiene las siguientes vistas:
+    -Juegos, da una vista general de algunos juegos de rol Existentes y la idea es proyectar una lista de las mesas vigentes con cupos actuales.
+    -Calendario, presente una vista del calendario oficial de las actividades programadas, las mesas que estan vigentes, y las que se vienen.
+    -Contacto, formulario de contacto para enviar mensajes, de momento estos se almacenan en bd.
+    -Mesas, despliega las mesas que estan buscando jugadores, este permite a los usuarios conocer mas sobre las mesas y poder inscribirse en una.
+    -Juntas, es un album con fotos de las juntas mensuales y quizas de uno que otro evento.
+    -Links Utilies, contiene links para las distintas redes sociales del grupo.
+    - y finalmente la vista de Login, donde los usuarios registrados podran ingresar a las secciones especificas
+
+- ### Narrador (CRUD): 
+    La seccion de Narrador, solo visible para usuarios con perfil de Narrador/Administrador, contiene la capacidad para listar los jugadores que se han inscrito a las mesas, permite editar su informacion en caso de saber que colocaron algun dato mal, y tambien la opcion de eliminarlos. Este menu en la seccion de Listar Inscritos cuenta con la opcion de desplegar una vista en formato PDF de los inscritos la cual puede ser guardada e impresa.
+    
+- ### Menu Administrador (CRUD): 
+    La seccion de Narrador, solo visible para usuarios con perfil de Administrativo,  contiene la capacidad para listar usuarios, crear usuario, editar usuarios y eliminar usuarios. 
+
+# 4. Rúbrica Evaluativa.
+
+### Consulta a la base de datos:
+
+1.  Selecciona las columnas requeridas para presentar la información solicitada.
+Como mencionado anteriormente, al estar usando JPA, el uso y selección de muchas de las posibles
+“queries” esta ya hecha en si, JPA a través de JpaRepository, ya nos entrega las Queries mas básicas
+que componen el Select que son las funciones que parten de un find, Insert Into y Update, que se
+absorben en el save, y Delete por delete. [Ejemplo:]()
+
+2. Utiliza JOIN para relacionar la información de distintas tablas.
+
+3. [Utiliza WHERE para filtrar la información requerida.](hospital/src/main/java/unab/portafolio/dao/DAO.java#L164)
+
+4. [Utiliza cláusulas de ordenamiento para presentar la información.](hospital/src/main/java/unab/portafolio/dao/DAO.java#82)
+
+5. Utiliza cláusulas de agrupación de información para obtener datos agregados.
+    
+### Algoritmo de cálculo y unidades de prueba:
+
+6. [Utilización general del lenguaje, sintaxis, selección de tipos de datos, sentencias lógicas, expresiones, operaciones, comparaciones.](hospital/src/main/java/unab/portafolio/controller/EliminarPacienteController.java#L34)
+
+7. [Utilización de sentencias repetitivas.](hospital/src/main/java/unab/portafolio/controller/LoginController.java#L38)
+
+8. [Utilización de clases, encapsulamiento y resposabilidad única.](hospital/src/main/java/unab/portafolio/model/usuario/Usuario.java#L10)
+
+9. Se utilizan correctamente interfaces o relaciones de herencia para hacer polimorfismo donde fuese necesario.
+
+    - [Herencia.](hospital/src/main/java/unab/portafolio/model/paciente/PacienteDAO.java#L5)
+    - [Polimorfismo.](hospital/src/main/java/unab/portafolio/model/paciente/Paciente.java#L72)
+
+10. Convenciones y estilos de programación.
+
+    - [Variables.](hospital/src/main/java/unab/portafolio/model/paciente/Paciente.java#L17)
+    - [Métodos.](hospital/src/main/java/unab/portafolio/dao/DAO.java#L40)
+    
+11. [Utilización de unidades de prueba.](hospital/src/test/java/unab/portafolio/singleton/HibernateUtilityTest.java#L14)
+
+### Página web html y css:
+
+12. Utilización de tags html, estilos y responsividad.
+
+    - [Tags HTML.](hospital/src/main/webapp/WEB-INF/views/home.jsp#L3)
+    - [Estilos.](hospital/src/main/webapp/resources/style.css)
+    - [Responsividad.](hospital/src/main/webapp/WEB-INF/views/home.jsp#L27)
+
+13. [Utilización de Botstrap.](hospital/src/main/webapp/WEB-INF/views/login.jsp#L13)
+
+### Spring MVC:
+
+14. [Utilización de Controllers.](hospital/src/main/java/unab/portafolio/controller/LoginController.java#L16)
+
+15. [Utilización de vistas JSP y Taglib.](hospital/src/main/webapp/WEB-INF/views/verpaciente.jsp#67)
+
+16. [Creación Servicio Spring.]()
 
 
 ### Desarrollo
