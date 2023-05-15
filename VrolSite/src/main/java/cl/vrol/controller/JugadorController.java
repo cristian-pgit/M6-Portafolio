@@ -60,8 +60,10 @@ public class JugadorController {
 	    }
 		
 		List<Jugador> listaInscritos = playerService.listarTodos();
+		List<Mesa> listaMesas = mesaService.listaMesas();
 		model.addAttribute("titulo", "Lista de Inscritos");
 		model.addAttribute("inscritos", listaInscritos);
+		model.addAttribute("mesas", listaMesas);
 		return "/views/jugadores/listarinscritos";
 	}
 	
@@ -73,17 +75,16 @@ public class JugadorController {
 	 * @param attribute the attribute
 	 * @return the string
 	 */
-	@GetMapping("/nuevoinscrito")
-	public String crearInscrito(Model model, HttpSession session, RedirectAttributes attribute) {
+	@GetMapping("/nuevoinscrito/{id}")
+	public String crearInscrito(@PathVariable("id") Long idMesa, Model model, HttpSession session, RedirectAttributes attribute) {
 		
-
+		Mesa mesa = mesaService.buscarPorMesaID(idMesa);
 		
 		Jugador jugador = new Jugador();
-		List<Mesa> listaMesas = mesaService.listaMesas();
 		
 		model.addAttribute("titulo", "Inscribir - Nuvo Jugador");
 		model.addAttribute("jugador", jugador);
-		model.addAttribute("mesas", listaMesas);
+		model.addAttribute("mesa", mesa);
 		
 		return "/views/jugadores/frmInscrito";
 	}
@@ -97,15 +98,15 @@ public class JugadorController {
 	 * @param attribute the attribute
 	 * @return the string
 	 */
-	@PostMapping("/inscribir")
-	public String inscribir(@Valid @ModelAttribute Jugador jugador, BindingResult result, 
+	@PostMapping("/inscribir/{id}")
+	public String inscribir(@Valid @ModelAttribute Jugador jugador, @PathVariable("id") Long idMesa, BindingResult result, 
 			Model model, RedirectAttributes attribute) {
-		List<Mesa> listaMesas = mesaService.listaMesas();
+		Mesa mesa = mesaService.buscarPorMesaID(idMesa);
 		
 		if (result.hasErrors()) {
 			model.addAttribute("titulo", "Inscribir - Nuevo Jugador");
 			model.addAttribute("jugador", jugador);
-			model.addAttribute("mesas", listaMesas);
+			model.addAttribute("mesa", mesa);
 			System.out.println("Hubo errores en el formulario");
 			return "/views/jugadores/frmInscrito";
 		}
@@ -155,12 +156,31 @@ public class JugadorController {
 		
 		List<Mesa> listaMesas = mesaService.listaMesas();
 		
+		
 		model.addAttribute("titulo", "Editar Jugador");
 		model.addAttribute("jugador", jugador);
 		model.addAttribute("mesas", listaMesas);
 		attribute.addFlashAttribute("info", "Jugador Inscrito Editado con Exito!");
 		
-		return "/views/jugadores/frmInscrito";
+		return "/views/jugadores/editPlayer";
+	}
+	
+	
+	@PostMapping("/editado")
+	public String inscribir(@Valid @ModelAttribute Jugador jugador, BindingResult result, 
+			Model model, RedirectAttributes attribute) {
+		
+		if (result.hasErrors()) {
+			model.addAttribute("titulo", "Inscribir - Nuevo Jugador");
+			model.addAttribute("jugador", jugador);
+			System.out.println("Hubo errores en el formulario");
+			return "/views/jugadores/frmInscrito";
+		}
+		
+		playerService.guardar(jugador);
+		System.out.println("Jugador Inscrito");
+		attribute.addFlashAttribute("info", "Jugador Editado");
+		return "redirect:/views/jugadores/";
 	}
 	
 	/**

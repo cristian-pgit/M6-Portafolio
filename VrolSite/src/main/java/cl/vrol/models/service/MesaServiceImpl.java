@@ -68,6 +68,17 @@ public class MesaServiceImpl implements IMesaService{
 	    int cuposDisponibles = mesa.getCupos() - jugadoresEnMesa;
 	    return cuposDisponibles;
 	}
+
+	@Override
+	public void guardar(Mesa mesa) {
+		mesaRepository.save(mesa);
+	}
+
+	@Override
+	public void eliminar(Long idMesa) {
+		mesaRepository.deleteById(idMesa);
+		
+	}
 	
 
 }

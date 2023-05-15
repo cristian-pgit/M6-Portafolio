@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import cl.vrol.models.entity.Jugador;
 import cl.vrol.models.service.IJugadorService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ListarJController.
  */

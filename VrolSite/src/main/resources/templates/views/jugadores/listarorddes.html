@@ -14,14 +14,23 @@
 	<div class="container">
 		<h1 class="text-center" th:text="${titulo}"></h1>
 	</div>
-	<div class="d-flex ml-4" id="botoneslista">
-		<a class="btn btn-primary btn-sm" th:href="@{/views/jugadores/}" type="button">Default</a>&nbsp;
-		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/ordAsc}" type="button">Ord Asc</a>&nbsp;
-		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/ordDes}" type="button">Ord Des</a>&nbsp;
-		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/bymesa?idMesa=1}" type="button">By Mesa 1</a>&nbsp;
-		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/bymesa?idMesa=2}" type="button">By Mesa 2</a>&nbsp;	
-		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/group?idMesa=1}" type="button">Group 1</a>&nbsp;
-		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/group?idMesa=2}" type="button">Group 2</a>&nbsp;	
+	<div class="d-flex ml-auto" id="botoneslista">
+	    <a class="btn btn-primary btn-sm" th:href="@{/views/jugadores/}" type="button">Default</a>&nbsp;
+	    <a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/ordAsc}" type="button">Ord Asc</a>&nbsp;
+	    <a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/ordDes}" type="button">Ord Des</a>&nbsp;
+	   	<div th:each="mesa:${mesas}">
+	   		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/bymesa?idMesa=}+${mesa.idMesa}" type="button"
+	   		th:text="'OrderBy Mesa ' + ${mesa.idMesa}" title="'Ordenar por mesa ' + ${mesa.idMesa}" ></a>&nbsp;
+	   	</div>
+	   	<div th:each="mesa:${mesas}">
+	   		<a class="btn btn-secondary btn-sm" th:href="@{/views/jugadores/group?idMesa=}+${mesa.idMesa}" type="button"
+	   		th:text="'Contar Mesa: ' + ${mesa.idMesa}" title="'Contar Jugadores en mesa N°: ' + ${mesa.idMesa}" ></a>&nbsp;
+	   	</div>
+		        
+	    <a class="exportbtn ml-auto" th:href="@{/views/jugadores/(format=pdf)}" title="Exportar a PDF" target="_blank">
+	        <img class="img-responsive center-box" th:src="@{/imgs/pdficon.png}" height="auto">
+	    </a>   
+	    
 	</div>
 	<div class="container">
 		<table class="table table-hover">

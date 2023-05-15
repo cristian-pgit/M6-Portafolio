@@ -8,53 +8,39 @@
 <div class="container d-flex">
 <br><br>
 	<div th:each="mesa:${mesas}" class="container-fluid">
+	<br>
 		<div class="card border-info mb-2" style="max-width: 22rem; max-height: 35rem;">
 		  <div class="card-header" th:text="${mesa.juego}"></div>
 		  <div class="card-body">
 		    <h4 class="card-title" th:text="${mesa.nombreMesa}"></h4>
-		    <div class="row d-flex">
-		    	<div class="col">
-		    		<p>Narrador:</p>&nbsp;
-		    	</div>
-		    	<div class="col">
-		    		<p class="card-text" th:text="${mesa.narrador}"></p>
-		    	</div>
-		    </div>
-		    <div class="row d-flex">
-		    	<div class="col">
-		    		<p>Cupos:</p>&nbsp;
-		    	</div>
-		    	<div class="col">
-		    		<p class="card-text" th:text="${mesa.cupos}"></p>
-		    	</div>
-		    </div>
-		    <div class="row d-flex">
-		    	<div class="col">
-		    		<p>Formato:</p>&nbsp;
-		    	</div>
-		    	<div class="col">
-		    		<p class="card-text" th:text="${mesa.formato}"></p>
-		    	</div>
-		    </div>
-		    <div class="row d-flex">
-		    	<div class="col">
-		    		<p>Fecha:</p>&nbsp;
-		    	</div>
-		    	<div class="col">
-		    		<p class="card-text" th:text="${mesa.dia}"></p>
-		    	</div>
-		    </div>
-		    <p class="card-text" th:text="${mesa.desCorta}"></p>
-		    <div class="row d-flex">
-		    	<div class="col">
-		    		<p>TAGS:</p>&nbsp;
-		    	</div>
-		    	<div class="col">
-		    		<p class="card-text" th:text="${mesa.tags}"></p>
-		    	</div>
-		    </div>
+		    <table>
+					<tr>
+						<th class="text-warning">Narrador: </th>
+						<td class="text-info" th:text="${mesa.narrador}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Cupos:</th>
+						<td class="text-info" th:text="${mesa.cupos}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Formato:</th>
+						<td class="text-info" th:text="${mesa.formato}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Fecha:</th>
+						<td class="text-info" th:text="${mesa.dia}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Descripción:&nbsp;  </th>
+						<td class="text-info" th:text="${mesa.desCorta}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">TAGS: </th>
+						<td class="text-info" th:text="${mesa.tags}"></td>
+					</tr>
+				</table>
 		    <div class="card-footer bg-dark text-center" id="botbtn">
-				<a class="btn btn-outline-light btn-sm"  th:href=@{/views/jugadores/nuevoinscrito}>Inscribirse</a>
+				<a class="btn btn-outline-light btn-sm" th:href="@{/mesas/ver/}+${mesa.idMesa}" th:text="VerMas"></a>
 			</div>
 		  </div>
 		</div>

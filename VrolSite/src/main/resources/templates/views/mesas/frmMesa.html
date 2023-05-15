@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+	<br>
+	<form th:action="@{/mesas/registrarmesa}"
+		th:object="${mesa}" method="post">
+		<fieldset>
+			<div class="card border-info mb-3" id="formIns">
+				<div class="card-header bg-dark text-center">
+					<strong th:text="${titulo}"></strong>
+				</div>
+				<div class="card-body">
+					<div class="container text-center">
+						<div class="row">
+							<input type="hidden" th:field="*{idMesa}">
+							<div class="col text-center">
+								<div class="form-group row mb-3">
+									<label for="nombreMesa" class="form-label mt-2">Nombre
+										de la Mesa:</label> <input type="text" th:field="*{nombreMesa}"
+										class="form-control form-control-sm col-md-6"
+										id="nombreMesa" placeholder="Escriba nombre de la Mesa">
+									<small class="form-text text-danger"
+										th:if="${#fields.hasErrors('nombreMesa')}"
+										th:errors="*{nombreMesa}"> </small>
+									<div class="invalid-feedback">No puede estar vacio</div>
+								</div>
+							</div>
+
+							<div class="col text-center">
+								<div class="form-group row mb-3">
+									<label for="juego" class="form-label mt-2">Juego:</label> <input
+										type="text" th:field="*{juego}"
+										class="form-control form-control-sm col-md-6" id="juego"
+										placeholder="Escriba correo valido"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('juego')}" th:errors="*{juego}">
+									</small>
+									<div class="invalid-feedback">No puede estar vacio</div>
+								</div>
+							</div>
+							
+							<div class="col text-center">
+								<div class="form-group row mb-3">
+									<label for="narrador" class="form-label mt-2">Narrador:</label> <input
+										type="text" th:field="*{narrador}"
+										class="form-control form-control-sm col-md-6" id="narrador"
+										placeholder="Escriba correo valido"> <small
+										class="form-text text-danger"
+										th:if="${#fields.hasErrors('narrador')}" th:errors="*{narrador}">
+									</small>
+									<div class="invalid-feedback">No puede estar vacio</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="row">
+						
+							<div class="col text-center">	
+								<div class="form-group row mb-3">
+									<label for="formato" class="form-label mt-2">Formato:</label>
+									<select th:field="*{formato}" class="form-control form-control-sm col-md-6" id="formato" required="true">
+										<option th:value="Online" th:text="Online" />
+										<option th:value="Presencial" th:text="Presencial" />
+									</select>
+									<div class="invalid-feedback">Debe seleccionar</div>
+								</div>
+							</div>
+
+							<div class="col text-center">
+							  <div class="form-group row mb-3">
+							    <label for="dia" class="form-label mt-2">Dia de la Partida:</label>
+							    <input type="text" th:field="*{dia}"
+							      class="form-control form-control-sm col-md-6" id="dia"
+							      pattern="\d{2}\/\d{2}\/\d{4}" placeholder="DD/MM/AAAA">
+							    <small class="form-text text-danger"
+							      th:if="${#fields.hasErrors('dia')}"
+							      th:errors="*{dia}"> </small>
+							    <div class="invalid-feedback">No puede estar vacio</div>
+							  </div>
+							</div>
+
+							<div class="col text-center">
+								<div class="form-group row mb-3">
+									<label for="cupos" class="form-label mt-2" >Cupos:</label>
+									<input type="number" th:field="*{cupos}" class="form-control form-control-sm col-md-6" 
+									id="cupos" placeholder="Cantidad de Jugadores" >
+									<small class="form-text text-danger" th:if="${#fields.hasErrors('cupos')}"
+										th:errors="*{cupos}">
+									</small>
+								</div>
+							</div>
+
+						</div>
+						
+						<div class="row">
+						
+							<div class="col text-center">	
+								<div class="form-group row mb-3">
+									<label for="desCorta" class="form-label mt-2">Descripcion Corta:</label>
+									<textarea th:field="*{desCorta}" class="form-control form-control-sm col-md-6" 
+							        id="cupos" placeholder="Una descripcion de la mesa en 200 caracteres" maxlength="200"></textarea>
+							        <small class="form-text text-danger" th:if="${#fields.hasErrors('desCorta')}"
+							            th:errors="*{desCorta}">
+							        </small>
+									<div class="invalid-feedback">Debe seleccionar</div>
+								</div>
+							</div>
+
+							<div class="col text-center">
+							  <div class="form-group row mb-3">				
+							    <label for="descripcion" class="form-label mt-2">Descripcion Larga:</label>
+									<textarea th:field="*{descripcion}" class="form-control form-control-sm col-md-6" 
+							        id="cupos" placeholder="Una descripcion de la mesa en 500 caracteres maximo" maxlength="200"></textarea>
+							        <small class="form-text text-danger" th:if="${#fields.hasErrors('descripcion')}"
+							            th:errors="*{descripcion}">
+							        </small>
+							    <div class="invalid-feedback">No puede estar vacio</div>
+							  </div>
+							</div>
+
+							<div class="col text-center">
+								<div class="form-group row mb-3">
+									<label for="tags" class="form-label mt-2 text-warning" >Tags:</label>
+									<textarea th:field="*{tags}" class="form-control form-control-sm col-md-6" 
+							        id="tags" placeholder="Tags apropiados. Ejemplo PG-18, Violencia, etc" maxlength="200"></textarea>
+									<small class="form-text text-danger" th:if="${#fields.hasErrors('tags')}"
+										th:errors="*{tags}">
+									</small>
+								</div>
+							</div>
+
+						</div>
+						
+						<div class="row">
+							<div class="col text-center">
+								<div class="card-footer bg-dark" id="botbtn">
+									<a class="btn btn-outline-success btn-sm" th:href=@{/mesas/}
+										th:text="Volver"></a>&nbsp; <input type="submit"
+										class="btn btn-outline-info btn-sm" value="Editar" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</fieldset>
+	</form>
+
+	<footer th:replace="plantilla/template :: footer"></footer>
+</body>
+</html>

@@ -36,5 +36,19 @@ public interface IMesaService {
 	 */
 	int getCuposDisponibles(Long idMesa);
 	
+	/**
+	 * Guardar.
+	 *
+	 * @param mesa the mesa
+	 */
+	public void guardar(Mesa mesa);
+	
+	/**
+	 * Eliminar.
+	 *
+	 * @param idInscrito the id idMesa
+	 */
+	public void eliminar(Long idMesa);
+	
 	
 }

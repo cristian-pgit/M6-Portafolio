@@ -5,7 +5,7 @@
 <body>
 <header th:replace="plantilla/template :: header"></header>
 	<br>
-<form  th:action="@{/views/jugadores/inscribir}" th:object="${jugador}" method="post">
+<form  th:action="@{/views/jugadores/inscribir/{id}(id=${mesa.idMesa})}" th:object="${jugador}" method="post">
 	<fieldset>	
 		<div class="card border-info mb-3" id="formIns" >
 		<div class="card-header bg-dark text-center"><strong th:text="${titulo}"></strong></div>
@@ -56,10 +56,7 @@
 						<div class="form-group row mb-3">
 							<label for="nombreJugador" class="form-label mt-2">Mesa:</label>
 							<select th:field="*{mesa}" class="form-control form-control-sm col-md-6" id="mesa" required="true">
-								<option th:each="mesa:${mesas}" 
-									th:value="${mesa.idMesa}"
-									th:text="${mesa.nombreMesa}"
-								/>
+								<option th:value="${mesa.idMesa}" th:text="${mesa.nombreMesa}" />
 							</select>
 							<div class="invalid-feedback">Debe seleccionar</div>
 						</div>
@@ -69,7 +66,8 @@
 				<div class="row">
 					<div class="col text-center">
 						<div class="card-footer bg-dark" id="botbtn">
-							<input type="submit" class="btn btn-outline-light btn-sm" value="Inscribirse" />
+							<a class="btn btn-outline-success btn-sm" th:href=@{/mesas/} th:text="Volver"></a>&nbsp;
+							<input type="submit" class="btn btn-outline-info btn-sm" value="Inscribirse" />
 						</div>
 					</div>
 				</div>

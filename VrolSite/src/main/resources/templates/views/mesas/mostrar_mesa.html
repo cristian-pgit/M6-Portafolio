@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="plantilla/template :: head">
+</head>
+<body>
+	<header th:replace="plantilla/template :: header"></header>
+
+	<div class="container">
+	<br>
+		<div class="card border-info mb-2">
+			<div class="card-header" th:text="${mesa.juego}"></div>
+			<div class="card-body">
+				<h4 class="card-title text-info" th:text="${mesa.nombreMesa}"></h4>
+				<table>
+					<tr>
+						<th class="text-warning">Narrador: </th>
+						<td class="text-info" th:text="${mesa.narrador}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Cupos:</th>
+						<td class="text-info" th:text="${mesa.cupos}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Formato:</th>
+						<td class="text-info" th:text="${mesa.formato}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Fecha:</th>
+						<td class="text-info" th:text="${mesa.dia}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">Descripción:&nbsp;  </th>
+						<td class="text-info" th:text="${mesa.descripcion}"></td>
+					</tr>
+					<tr>
+						<th class="text-warning">TAGS: </th>
+						<td class="text-info" th:text="${mesa.tags}"></td>
+					</tr>
+				</table>
+				<div class="card-footer bg-dark text-center" id="botbtn">
+					<a class="btn btn-outline-success btn-sm" th:href=@{/mesas/} th:text="Volver"></a>&nbsp;
+					<a class="btn btn-outline-info btn-sm"
+						th:href="@{/views/jugadores/nuevoinscrito/{id}(id=${mesa.idMesa})}" th:text="Inscribirse"></a>
+						
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer th:replace="plantilla/template :: footer"></footer>
+
+</body>
+</html>

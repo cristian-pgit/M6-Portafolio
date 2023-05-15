@@ -10,6 +10,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -28,30 +30,39 @@ public class Mesa implements Serializable {
 	private Long idMesa;
 	
 	/** The nombre mesa. */
+	@NotEmpty
 	private String nombreMesa;
 	
 	/** The narrador. */
+	@NotEmpty
 	private String narrador;
 	
 	/** The juego. */
+	@NotEmpty
 	private String juego;
 	
 	/** The formato. */
+	@NotEmpty
 	private String formato;
 	
 	/** The dia. */
+	@NotEmpty
 	private String dia;
 	
 	/** The cupos. */
+	@NotNull(message = "Los cupos son requeridos")
 	private int cupos;
 	
 	/** The des corta. */
+	@NotEmpty
 	private String desCorta;
 	
 	/** The descripcion. */
+	@NotEmpty
 	private String descripcion;
 	
 	/** The tags. */
+	@NotEmpty
 	private String tags;
 	
 	/**

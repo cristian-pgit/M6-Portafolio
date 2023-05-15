@@ -89,6 +89,11 @@ nav:navbar-brand{
 	
 }
 
+.exportbtn{
+	position: fixed;
+	right: 7.8rem;
+} 
+
 .btn-outline-light{
 	height: 40px;
     width: 90px;
@@ -112,6 +117,13 @@ nav:navbar-brand{
 .navbar-form input,
 .navbar-form button {
     width: 100%; /* el ancho del campo de entrada y botón es igual al ancho del formulario */
+}
+
+.dropdown-item{
+	color: white;
+}
+.nav-link:focus, .nav-link:hover{
+	color: lightgrey;
 }
 
 
